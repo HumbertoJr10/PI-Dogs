@@ -16,7 +16,8 @@ const getApiInfo = () => {
                     (dog.weight.metric.split(' - ')[0]*1 + 
                     dog.weight.metric.split(' - ')[1]*1)/2)).toString() : dog.weight.metric.split(' - ')[0],
                 life_span: dog.life_span,
-                temperament: dog.temperament
+                temperament: dog.temperament,
+                image: dog.image.url
             }
         })) 
     return info;
