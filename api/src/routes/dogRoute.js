@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const getApiInfo = require('../controller/getApi')
 const getAllDog = require('../controller/getAllDog')
 const { Dog } = require('../db')
 
