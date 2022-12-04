@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const getAllDog = require('../controller/getAllDog')
 const getTemperaments = require('../controller/getTemperament')
+const { Temperament } = require('../db')
 
 const temperamentsRouter = Router();
 

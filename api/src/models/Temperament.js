@@ -1,7 +1,7 @@
 const {DataTypes} = require('sequelize')
 
-const Temper = (sequelize) => {
-    sequelize.define('temper', {
+const Temperament = (sequelize) => {
+    sequelize.define('temperament', {
 
         id: {
             type: DataTypes.UUID,
@@ -15,4 +15,4 @@ const Temper = (sequelize) => {
     })
 }
 
-module.exports = Temper
+module.exports = Temperament
