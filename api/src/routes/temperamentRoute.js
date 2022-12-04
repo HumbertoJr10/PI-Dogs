@@ -8,7 +8,18 @@ temperamentsRouter.get('/', async (req,res)=> {
     //res.status(200).json('Estamos en ruta temperamentsRouter')
     try {
         const allTemperaments = await getTemperaments()
-        res.status(200).json(allTemperaments)
+
+        allTemperaments.forEach( temperament => {
+            Temperament.findOrCreate({
+                where: {
+                    name: temperament
+                }
+            })
+        })
+
+        const temperamentInDb = await Temperament.findAll()
+
+        res.status(200).json(temperamentInDb)
     } catch (error) {
         res.status(404).json({error: error.message})
     }
