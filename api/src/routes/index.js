@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const dogsRouter = require('./dogs');
-const temperamentsRouter = require("./temperaments")
+const dogsRouter = require('./dogRoute');
+const temperamentsRouter = require("./temperamentRoute")
 
 const router = Router();
 
