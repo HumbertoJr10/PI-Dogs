@@ -3,7 +3,7 @@ import { ADD_DOG, GET_DOGS } from "../action/action"
 //------------------
 
 const initialState = {
-    dog: [{name: 'Riera'}],
+    dog: [],
     temperament: []
 }
 

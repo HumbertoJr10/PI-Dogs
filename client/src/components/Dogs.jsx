@@ -12,7 +12,7 @@ const CardContainer = styled.div`
 export default function Dogs ( { name, height, weight, life_span, image, temperament } ) {
     return (
         <CardContainer>
-            <h1> nombre: {name || "undefined"} </h1>
+            <h1> {name || "undefined"} </h1>
             <ImageCard src={image|| "undefined"} alt='none' />
             <p>Height: {height|| "undefined"} </p>
             <p>Weight: {weight|| "undefined"} </p>

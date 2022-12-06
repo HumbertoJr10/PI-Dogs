@@ -1,0 +1,30 @@
+.divPagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.buttonPage {
+    border-radius: 5px;
+    height: 35px;
+
+}
+
+.buttonPage:hover {
+    cursor: pointer;
+}
+
+.inputPage {
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+}
+
+.inputPage:hover {
+    cursor: text;
+}
