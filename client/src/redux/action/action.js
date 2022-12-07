@@ -2,6 +2,8 @@
 
 export const ADD_DOG = 'ADD_DOG'
 export const GET_DOGS = 'GET_DOGS'
+export const ORDER_AZ = 'ORDER_AZ'
+export const ORDER_ZA = 'ORDER_ZA'
 
 //------------------------------
 
@@ -22,5 +24,19 @@ export function getDogs () {
                 payload: data
             })
         })
+    }
+}
+
+export function orderAZ () {
+    return {
+        type: ORDER_AZ,
+        payload: true
+    }
+}
+
+export function orderZA () {
+    return {
+        type: ORDER_ZA,
+        payload: true
     }
 }

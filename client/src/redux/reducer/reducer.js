@@ -1,10 +1,11 @@
 // importar actions
-import { ADD_DOG, GET_DOGS } from "../action/action"
+import { ADD_DOG, GET_DOGS, ORDER_AZ, ORDER_ZA } from "../action/action"
 //------------------
 
 const initialState = {
     dog: [],
-    temperament: []
+    temperament: [],
+    dogRespaldo: []
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -17,7 +18,18 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_DOGS:
             return {
                 ...state, 
-                dog: [...state.dog, ...payload]
+                dog: [...state.dog, ...payload],
+                dogRespaldo: [...state.dog, ...payload]
+            }
+        case ORDER_AZ:
+            return {
+                ...state,
+                dog: [...state.dog].sort((x,y) => x.name.localeCompare(y.name))
+            }
+        case ORDER_ZA:
+            return {
+                ...state,
+                dog: [...state.dog].sort((x,y) => y.name.localeCompare(x.name))
             }
 
         default:

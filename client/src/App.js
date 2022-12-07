@@ -3,6 +3,8 @@ import AllDogs from './components/AllDogs/AllDogs';
 import { useDispatch, useSelector } from "react-redux"
 import { getDogs } from './redux/action/action';
 import { useEffect } from 'react';
+import Nav from './components/Nav/Nav';
+//import { Route } from 'react-router-dom'
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
 
   return (
     <div className="App">
+      <Nav/>
       <AllDogs/>
     </div>
   );

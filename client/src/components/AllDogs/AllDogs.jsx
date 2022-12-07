@@ -36,7 +36,10 @@ export default function AllDogs (props) {
                         </div>
                 }
             </div>     
-                <Pagination pages={pages} setPages={setPages} maxPages={maxPages}/>
+                {
+                    dogs.length?<Pagination pages={pages} setPages={setPages} maxPages={maxPages} setPerPage={setPerPage}/>:
+                    null                 
+                }
         </div>
     )
 }
