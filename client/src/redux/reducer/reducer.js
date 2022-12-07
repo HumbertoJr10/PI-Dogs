@@ -1,8 +1,9 @@
 // importar actions
-import { ADD_DOG, GET_DOGS, ORDER_AZ, ORDER_ZA, ORDER_BY_API, ORDER_BY_DB } from "../action/action"
+import { ADD_DOG, GET_DOGS, ORDER_AZ, ORDER_ZA, ORDER_BY_API, ORDER_BY_DB, CHANGE_PAGE } from "../action/action"
 //------------------
 
 const initialState = {
+    pages: 1,
     dog: [],
     temperament: [],
     dogRespaldo: [],
@@ -49,6 +50,11 @@ const reducer = (state = initialState, { type, payload }) => {
                         return e
                     }
                 } )
+            }
+        case CHANGE_PAGE:
+            return {
+                ...state,
+                pages: payload
             }
 
         default:

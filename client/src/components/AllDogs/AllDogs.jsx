@@ -7,7 +7,7 @@ import styles from './AllDogs.module.css'
 
 export default function AllDogs (props) {
     const dogs = useSelector( state => state.dog) // Estado Global
-    const [pages, setPages] = useState(1) // Cantidad de paginas
+    const pages = useSelector(state => state.pages) // pagina en la que nos encontramos ESTADO GLOBAL
     const [perPage, setPerPage] = useState(8) // Cantidad de elementos a mostrar en cada pagina
     const maxPages = Math.ceil(dogs.length / perPage) //Cantidad de Paginas Totales
 
@@ -37,7 +37,7 @@ export default function AllDogs (props) {
                 }
             </div>     
                 {
-                    dogs.length?<Pagination pages={pages} setPages={setPages} maxPages={maxPages} setPerPage={setPerPage}/>:
+                    dogs.length?<Pagination maxPages={maxPages} setPerPage={setPerPage}/>:
                     null                 
                 }
         </div>

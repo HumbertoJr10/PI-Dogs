@@ -6,6 +6,7 @@ export const ORDER_AZ = 'ORDER_AZ'
 export const ORDER_ZA = 'ORDER_ZA'
 export const ORDER_BY_API = 'ORDER_BY_API'
 export const ORDER_BY_DB = 'ORDER_BY_DB'
+export const CHANGE_PAGE = 'CHANGE_PAGE' 
 
 //------------------------------
 
@@ -54,5 +55,12 @@ export function orderByDb () {
     return {
         type: ORDER_BY_DB,
         payload: true
+    }
+}
+
+export function changePage (numero) {
+    return {
+        type: CHANGE_PAGE,
+        payload: numero
     }
 }

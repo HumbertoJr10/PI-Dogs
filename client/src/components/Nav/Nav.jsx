@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import styles from './Nav.module.css'
-import { orderAZ, orderZA, orderByApi, orderByDb } from "../../redux/action/action"
+import { orderAZ, orderZA, orderByApi, orderByDb, changePage} from "../../redux/action/action"
 
 export default function Nav() {
     const [order, setOrder] = useState(false)
     const [apiOrder, setApiOrder] = useState(false)
-    const [dataBaseOrder, setDataBaseOrder] = useState(false)
+    const pages = useSelector(state => state.pages)
 
     const dispatch = useDispatch()
     const dogs = useSelector(state => state.dog)
@@ -24,11 +24,13 @@ export default function Nav() {
     const handlerapiOrder = () => {
         setApiOrder(true)
         dispatch(orderByApi())
+        dispatch(changePage(1))
     }
 
     const handlerDbOrder = () => {
         setApiOrder(false)
         dispatch(orderByDb())
+        dispatch(changePage(1))
     }
 
     return (

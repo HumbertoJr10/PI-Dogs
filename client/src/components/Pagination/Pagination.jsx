@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import styles from './Pagination.module.css'
+import { useDispatch, useSelector } from "react-redux";
+import { changePage } from "../../redux/action/action";
 
 
-export default function Pagination({pages, setPages, maxPages}) {
-
+export default function Pagination({maxPages}) {
+    const pages = useSelector( state => state.pages )
+    const dispatch = useDispatch()
     const [input, setInput] = useState(1)
 
     const nextPage = () => {
         if (input!==pages) {   // Para correguir bugs si el usuario modifica el imput
             setInput(pages)
         }
-        setPages (pages * 1 + 1)
+        dispatch(changePage(pages * 1 + 1 ))
+        //setPages (pages * 1 + 1)
         setInput (input * 1 + 1)
     }
 
@@ -18,7 +22,8 @@ export default function Pagination({pages, setPages, maxPages}) {
         if (input!==pages) {   // Para correguir bugs si el usuario modifica el imput
             setInput(pages)
         }
-        setPages (pages*1 - 1)
+        dispatch(changePage(pages * 1 - 1 ))
+        //setPages (pages*1 - 1)
         setInput (input*1 - 1)
     }
 
@@ -28,7 +33,8 @@ export default function Pagination({pages, setPages, maxPages}) {
             if (e.target.value< 1 || e.target.value > maxPages || isNaN(e.target.value) ) {
                 alert('Invalid Page')
             } else {
-                setPages(e.target.value)
+                dispatch(changePage(e.target.value))
+                //setPages(e.target.value)
                 setInput(e.target.value)
             }
         }
@@ -45,7 +51,7 @@ export default function Pagination({pages, setPages, maxPages}) {
             onClick={previousPage}
             disabled={pages<=1}>◀️</button>
             <input onChange={onChange} onKeyDown={onKeyDown} className={styles.inputPage} type="text" value={input}/>
-            <p> de {maxPages}</p>
+            <p>{pages} de {maxPages}</p>
             <button 
                 className={styles.buttonPage} 
                 onClick={nextPage}
