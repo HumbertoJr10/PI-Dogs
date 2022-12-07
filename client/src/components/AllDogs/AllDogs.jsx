@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dogs from "../Dogs";
+import Dogs from "../Dogs/Dogs";
 import { useSelector } from "react-redux";
 import Pagination from "../Pagination/Pagination";
 import styles from './AllDogs.module.css'
@@ -8,7 +8,7 @@ import styles from './AllDogs.module.css'
 export default function AllDogs (props) {
     const dogs = useSelector( state => state.dog) // Estado Global
     const [pages, setPages] = useState(1) // Cantidad de paginas
-    const [perPage, setPerPage] = useState(6) // Cantidad de elementos a mostrar en cada pagina
+    const [perPage, setPerPage] = useState(8) // Cantidad de elementos a mostrar en cada pagina
     const maxPages = Math.ceil(dogs.length / perPage) //Cantidad de Paginas Totales
 
     

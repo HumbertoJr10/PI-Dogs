@@ -1,0 +1,21 @@
+.container {
+    background-image: url("https://st2.depositphotos.com/1106005/8592/i/600/depositphotos_85929920-stock-photo-black-and-white-doggy-tile.jpg");
+    width: 200px;
+    height: 225px;
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.imagen {
+    width: 95%;
+    height: 150px;
+    margin-top: 5px;
+    border-radius: 20px;
+
+}
+
+.CardName {
+    color: white;
+    background-color: #252422;
+    font-size: 15px;
+}

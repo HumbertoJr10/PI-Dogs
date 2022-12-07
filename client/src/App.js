@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 
 
 function App() {
-
   const dispatch = useDispatch()
   const dogs = useSelector(state => state.dog)
   
@@ -18,7 +17,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Longitud: {dogs.length}</h1>
       <AllDogs/>
     </div>
   );
