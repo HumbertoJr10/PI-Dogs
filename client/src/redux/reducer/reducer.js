@@ -1,11 +1,12 @@
 // importar actions
-import { ADD_DOG, GET_DOGS, ORDER_AZ, ORDER_ZA } from "../action/action"
+import { ADD_DOG, GET_DOGS, ORDER_AZ, ORDER_ZA, ORDER_BY_API, ORDER_BY_DB } from "../action/action"
 //------------------
 
 const initialState = {
     dog: [],
     temperament: [],
-    dogRespaldo: []
+    dogRespaldo: [],
+    userLogged: []
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -30,6 +31,24 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 dog: [...state.dog].sort((x,y) => y.name.localeCompare(x.name))
+            }
+        case ORDER_BY_API:
+            return {
+                ...state,
+                dog: state.dogRespaldo.filter( e => {
+                    if (!isNaN(e.id)) {
+                        return e
+                    }
+                } )
+            }
+        case ORDER_BY_DB:
+            return {
+                ...state,
+                dog: state.dogRespaldo.filter( e => {
+                    if (isNaN(e.id)) {
+                        return e
+                    }
+                } )
             }
 
         default:
