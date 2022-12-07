@@ -7,7 +7,7 @@ export default function Pagination({pages, setPages, maxPages}) {
     const [input, setInput] = useState(1)
 
     const nextPage = () => {
-        if (setPages!=setInput) {   // Para correguir bugs si el usuario modifica el imput
+        if (input!=pages) {   // Para correguir bugs si el usuario modifica el imput
             setInput(pages)
         }
         setPages (pages * 1 + 1)
@@ -15,7 +15,7 @@ export default function Pagination({pages, setPages, maxPages}) {
     }
 
     const previousPage = () => {
-        if (setPages!=setInput) {   // Para correguir bugs si el usuario modifica el imput
+        if (input!=pages) {   // Para correguir bugs si el usuario modifica el imput
             setInput(pages)
         }
         setPages (pages*1 - 1)

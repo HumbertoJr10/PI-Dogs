@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const getAllDog = require('../controller/getAllDog')
-const { Dog } = require('../db')
+const { Dog, Temperament } = require('../db')
 
 
 const dogsRouter = Router();
@@ -30,7 +30,7 @@ dogsRouter.get('/', async (req,res)=> {
 
 dogsRouter.post('/', async (req, res)=> {
     try {
-        const { name, height, weight, life_span, image } = req.body
+        const { name, height, weight, life_span, image, temperament } = req.body
         if (!name || !height || !weight || !life_span ) 
             return res.status(400).json('Faltan Parametros')
         
@@ -45,8 +45,14 @@ dogsRouter.post('/', async (req, res)=> {
         }
         
 
-        const newDog = await Dog.create({ name, height, weight, life_span, image })
-        res.status(201).json(`Creado ${name} satisfactoriamente`)
+        const newDog = await Dog.create({ name, height, weight, life_span, image, temperament })
+        const TemperamentInDB = await Temperament.findAll({ where: {name: temperament }})
+        console.log(TemperamentInDB)
+        newDog.addTemperament(TemperamentInDB)
+        res.status(201).json({
+            creado: true,
+            data: newDog
+        })
     } catch (error) {
         res.status(404).json({error: error.message})
     }
@@ -68,6 +74,8 @@ dogsRouter.get('/:id', async (req, res) => {
         res.status(404).json({error: error.message})
     }
 })
+
+
 
 
 module.exports = dogsRouter;

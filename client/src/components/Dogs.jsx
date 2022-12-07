@@ -13,11 +13,7 @@ export default function Dogs ( { name, height, weight, life_span, image, tempera
     return (
         <CardContainer>
             <h1> {name || "undefined"} </h1>
-            <ImageCard src={image|| "undefined"} alt='none' />
-            <p>Height: {height|| "undefined"} </p>
-            <p>Weight: {weight|| "undefined"} </p>
-            <p>Life Span: {life_span|| "undefined"} </p>
-            <p>Temperament: {temperament}</p>
+            <ImageCard src={image|| "http://pawrider.com/assets/images/pages-loder.gif"} alt='none' />
         </CardContainer>
     )
 }
