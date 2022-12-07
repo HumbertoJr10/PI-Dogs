@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from "react-redux"
 import { getDogs } from './redux/action/action';
 import { useEffect } from 'react';
 import Nav from './components/Nav/Nav';
-//import { Route } from 'react-router-dom'
+//import {Switch, Route, Router} from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+
 
 
 function App() {
@@ -18,10 +21,14 @@ function App() {
   }, [])
 
   return (
+    <BrowserRouter>
     <div className="App">
       <Nav/>
-      <AllDogs/>
+        <Switch>
+        <Route exact path='/' component={AllDogs} />      
+        </Switch>
     </div>
+    </BrowserRouter>
   );
 }
 export default App;
