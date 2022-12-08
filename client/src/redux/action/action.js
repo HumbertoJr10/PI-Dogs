@@ -4,9 +4,10 @@ export const ADD_DOG = 'ADD_DOG'
 export const GET_DOGS = 'GET_DOGS'
 export const ORDER_AZ = 'ORDER_AZ'
 export const ORDER_ZA = 'ORDER_ZA'
+export const ORDER_BY_ALL = 'ORDER_BY_ALL'
 export const ORDER_BY_API = 'ORDER_BY_API'
 export const ORDER_BY_DB = 'ORDER_BY_DB'
-export const CHANGE_PAGE = 'CHANGE_PAGE' 
+export const CHANGE_PAGE = 'CHANGE_PAGE'
 
 //------------------------------
 
@@ -43,6 +44,15 @@ export function orderZA () {
         payload: true
     }
 }
+
+export function orderByAll () {
+    return {
+        type: ORDER_BY_ALL,
+        payload: true
+    }
+}
+
+
 
 export function orderByApi () {
     return {

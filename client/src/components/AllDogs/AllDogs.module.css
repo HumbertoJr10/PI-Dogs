@@ -1,7 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
+}
 
 .AllDogsDiv {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.imgLoading {
+    justify-items: center;
+    align-items: center;
 }

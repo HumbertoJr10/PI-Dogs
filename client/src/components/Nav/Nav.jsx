@@ -18,7 +18,6 @@ export default function Nav() {
     const zAOrder = () => {
         dispatch(orderZA())
         setOrder(false)
-        console.log(dogs)
     }
 
     const handlerapiOrder = () => {
