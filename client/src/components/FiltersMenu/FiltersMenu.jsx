@@ -32,6 +32,8 @@ export default function FilterMenu() {
         setApi(true)
         setDatabase(false)
         setALL(false)
+        setAZ(false)
+        setZA(false)
     }
 
     const OrderDatabase = () => {
@@ -40,6 +42,8 @@ export default function FilterMenu() {
         setApi(false)
         setDatabase(true)
         setALL(false)
+        setAZ(false)
+        setZA(false)
     }
 
     const OrderAll = () => {
@@ -47,6 +51,8 @@ export default function FilterMenu() {
         setApi(false)
         setDatabase(false)
         setALL(true)
+        setAZ(false)
+        setZA(false)
     }
 
 
@@ -64,6 +70,12 @@ export default function FilterMenu() {
                 <button className={AZ? styles.imageOrderClicked : styles.imageOrder} onClick={OrderA_Z}>A-Z</button>
                 <button className={ZA? styles.imageOrderClicked : styles.imageOrder} onClick={OrderZ_A}>Z-A</button>
             </div>
+            
+            <select >
+                <option value={'Peso'}>Peso</option>
+                <option value={'Peso'}>Tamaño</option>
+            </select>
+
         </div>
     )
 

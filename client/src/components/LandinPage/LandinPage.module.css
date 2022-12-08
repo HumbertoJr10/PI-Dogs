@@ -1,3 +1,7 @@
 .startButton {
     background-color: blue;
 }
+
+.startButton:hover {
+    cursor: pointer
+}

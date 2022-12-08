@@ -6,18 +6,13 @@ const getApiInfo = () => {
             return {
                 id: dog.id,
                 name: dog.name,
-                height: dog.height.metric.split(' - ')[1]? 
-                    Math.round((
-                        (dog.height.metric.split(' - ')[0]*1 + 
-                        dog.height.metric.split(' - ')[1]*1)/2)).toString() : dog.height.metric.split(' - ')[0],
-
-                weight: dog.weight.metric.split(' - ')[1]? 
-                Math.round((
-                    (dog.weight.metric.split(' - ')[0]*1 + 
-                    dog.weight.metric.split(' - ')[1]*1)/2)).toString() : dog.weight.metric.split(' - ')[0],
+                heightMin: dog.height.metric.split(' - ')[0],
+                heightMax: dog.height.metric.split(' - ')[1]?dog.height.metric.split(' - ')[1]:((dog.height.metric.split(' - ')[0]*1)+1).toString(),
+                weightMin: dog.weight.metric.split(' - ')[0], 
+                weightMax: dog.weight.metric.split(' - ')[1]?dog.weight.metric.split(' - ')[1]:((dog.weight.metric.split(' - ')[0]*1)+1).toString(),
                 life_span: dog.life_span,
+                image: dog.image.url,
                 temperament: dog.temperament,
-                image: dog.image.url
             }
         })) 
     return info;

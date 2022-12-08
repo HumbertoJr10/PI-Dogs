@@ -11,7 +11,14 @@ const getDatabase =  async () => {
         }
     })
 
-    return infoDatabase;
+    let mapeado = infoDatabase.map( e => {
+        const { id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperaments } = e
+        return {
+            id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperament: temperaments[0].name
+        }
+    })
+
+    return mapeado;
 }
 
 module.exports = getDatabase

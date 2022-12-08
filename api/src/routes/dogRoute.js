@@ -1,9 +1,20 @@
 const { Router } = require('express');
 const getAllDog = require('../controller/getAllDog')
+const getApiInfo = require('../controller/getApi')
+const getDatabase = require('../controller/getDatabase')
 const { Dog, Temperament } = require('../db')
 
 
 const dogsRouter = Router();
+
+dogsRouter.get('/prueba', async (req,res)=> {
+    try {
+        let result = await getDatabase()
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+})
 
 dogsRouter.get('/', async (req,res)=> {
     try {
@@ -30,9 +41,16 @@ dogsRouter.get('/', async (req,res)=> {
 
 dogsRouter.post('/', async (req, res)=> {
     try {
-        const { name, height, weight, life_span, image, temperament } = req.body
-        if (!name || !height || !weight || !life_span ) 
-            return res.status(400).json('Faltan Parametros')
+        const { name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperament } = req.body
+        if (!name || 
+            !heightMin || 
+            !heightMax || 
+            !weightMin  || 
+            !weightMax || 
+            !life_span || 
+            !image || 
+            !temperament ){ 
+            return res.status(400).json('Faltan Parametros')}
         
         const verification = await Dog.findAll({
             where: {
@@ -45,7 +63,7 @@ dogsRouter.post('/', async (req, res)=> {
         }
         
 
-        const newDog = await Dog.create({ name, height, weight, life_span, image, temperament })
+        const newDog = await Dog.create({ name, heightMin, heightMax, weightMin, weightMax, life_span, image })
         const TemperamentInDB = await Temperament.findAll({ where: {name: temperament }})
         console.log(TemperamentInDB)
         newDog.addTemperament(TemperamentInDB)

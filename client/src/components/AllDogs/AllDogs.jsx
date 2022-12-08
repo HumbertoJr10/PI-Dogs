@@ -23,10 +23,10 @@ export default function AllDogs (props) {
         }
     }, [])
 
-
+let dogss = ''
     return (
         <div className={styles.container}>
-            <div>
+            <div className={styles.DogsSide}>
                 <div className={styles.AllDogsDiv}> 
                     {
                         dogs.length?dogs.slice(
@@ -44,7 +44,7 @@ export default function AllDogs (props) {
                             />
                         }):
                         <div className={styles.imgLoading}>
-                            <img src="http://pawrider.com/assets/images/pages-loder.gif" alt="searching..." />
+                            <img className={styles.imagenPerrito} src="http://pawrider.com/assets/images/pages-loder.gif" alt="searching..." />
                             <h1>Loading...</h1>
                         </div>
                     }
@@ -56,12 +56,11 @@ export default function AllDogs (props) {
                     null                 
                 }
             </div>
-            {
-                !dogs.length?null:
-            <div>
-                    <FilterMenu/>
+            <div className={styles.MenuSide}>
+                {
+                    !dogs.length?null:<FilterMenu/>
+                }
             </div>
-            }
         </div>
     )
 }
