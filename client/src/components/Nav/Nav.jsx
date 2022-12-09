@@ -1,50 +1,34 @@
-import React, { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react"
 import styles from './Nav.module.css'
-import { orderAZ, orderZA, orderByApi, orderByDb, changePage} from "../../redux/action/action"
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 
 export default function Nav() {
-    const [order, setOrder] = useState(false)
-    const [apiOrder, setApiOrder] = useState(false)
-    const pages = useSelector(state => state.pages)
+    
 
-    const dispatch = useDispatch()
-    const dogs = useSelector(state => state.dog)
-
-    const aZOrder = () => {
-        dispatch(orderAZ())
-        setOrder(true)
-    }
-    const zAOrder = () => {
-        dispatch(orderZA())
-        setOrder(false)
-    }
-
-    const handlerapiOrder = () => {
-        setApiOrder(true)
-        dispatch(orderByApi())
-        dispatch(changePage(1))
-    }
-
-    const handlerDbOrder = () => {
-        setApiOrder(false)
-        dispatch(orderByDb())
-        dispatch(changePage(1))
-    }
+   
 
     return (
         <div className={styles.container}>
             
-            {
-                !order?
-                <button onClick={aZOrder}>Az</button>:
-                <button onClick={zAOrder}>Za</button>
-            }
-            {
-                !apiOrder?
-                <button onClick={handlerapiOrder}>API</button>:
-                <button onClick={handlerDbOrder}>DB</button>
-            }
+            <div className={styles.navigationDiv}>   
+                <NavLink className={styles.navButton} to={'/'}>
+                    <p>Home</p>
+                </NavLink> 
+                
+                <p className={styles.navButton}>About</p>
+            </div>
+
+            <div className={styles.searchDiv}>
+                <input className={styles.searchText} type={"text"} placeholder={'Search...'}></input>
+                <button className={styles.searchButton}>
+                    <img className={styles.imgSearch} src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844432-magnifier-search-zoom_110300.png"/>
+                </button>
+            </div>
+
+                <img className={styles.profileIcon} src="https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg"/>
+            
         </div>
     )
 }

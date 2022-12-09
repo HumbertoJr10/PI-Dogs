@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './Pagination.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import { changePage } from "../../redux/action/action";
@@ -10,22 +10,16 @@ export default function Pagination({maxPages}) {
     const [input, setInput] = useState(1)
 
     const nextPage = () => {
-        if (input!==pages) {   // Para correguir bugs si el usuario modifica el imput
-            setInput(pages)
-        }
         dispatch(changePage(pages * 1 + 1 ))
-        //setPages (pages * 1 + 1)
-        setInput (input * 1 + 1)
     }
 
     const previousPage = () => {
-        if (input!==pages) {   // Para correguir bugs si el usuario modifica el imput
-            setInput(pages)
-        }
         dispatch(changePage(pages * 1 - 1 ))
-        //setPages (pages*1 - 1)
-        setInput (input*1 - 1)
     }
+
+    useEffect( ()=> {
+        setInput(pages)
+    }, [pages])
 
     const onKeyDown = (e) => {
         if ( e.keyCode === 13 ) {
@@ -34,8 +28,6 @@ export default function Pagination({maxPages}) {
                 alert('Invalid Page')
             } else {
                 dispatch(changePage(e.target.value))
-                //setPages(e.target.value)
-                setInput(e.target.value)
             }
         }
     }
@@ -49,13 +41,17 @@ export default function Pagination({maxPages}) {
             <button 
             className={styles.buttonPage} 
             onClick={previousPage}
-            disabled={pages<=1}>◀️</button>
+            disabled={pages<=1}>◀ PREV</button>
+
+        <div className={styles.pages}>
             <input onChange={onChange} onKeyDown={onKeyDown} className={styles.inputPage} type="text" value={input}/>
-            <p>{pages} de {maxPages}</p>
+            <p> Page {pages} / {maxPages}</p>
+        </div>
+
             <button 
                 className={styles.buttonPage} 
                 onClick={nextPage}
-                disabled={pages>=maxPages}>▶️</button>
+                disabled={pages>=maxPages}> NEXT ▶</button>
         </div>
     )
 }

@@ -12,7 +12,7 @@ import { getDogs } from "../../redux/action/action";
 
 export default function AllDogs (props) {
     const pages = useSelector(state => state.pages) // pagina en la que nos encontramos ESTADO GLOBAL
-    const [perPage, setPerPage] = useState(8) // Cantidad de elementos a mostrar en cada pagina
+    const [perPage, setPerPage] = useState(6) // Cantidad de elementos a mostrar en cada pagina
     const dogs = useSelector( state => state.dog) // Estado Global
     const maxPages = Math.ceil(dogs.length / perPage) //Cantidad de Paginas Totales
     const dispatch = useDispatch()

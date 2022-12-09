@@ -1,21 +1,38 @@
 .divPagination {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-top: 15px;
     margin-bottom: 15px;
+    
 }
 
 .buttonPage {
     border-radius: 5px;
-    height: 35px;
+    height: 50px;
+    width: 120px;
+    background-color: white;
+    color: #219ebc;
+    border: none;
+    filter: drop-shadow(2px 2px 2px rgb(211, 208, 208));
+}
 
+.buttonPage:disabled:hover {
+    background-color: white;
+    color: #219ebc;
+    cursor: not-allowed;
 }
 
 .buttonPage:hover {
     cursor: pointer;
+    background-color: #219ebc;
+    color: #ffff;
 }
-
+.pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .inputPage {
     border-radius: 5px;
     margin-left: 5px;
@@ -23,6 +40,11 @@
     height: 30px;
     width: 60px;
     text-align: center;
+    border: 1px solid rgb(168, 168, 168);
+}
+
+.inputPage:focus {
+    outline: none;
 }
 
 .inputPage:hover {

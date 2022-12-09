@@ -5,6 +5,7 @@ import { orderAZ, orderZA, orderByApi, orderByDb, changePage, orderByAll} from "
 import { useState } from "react";
 
 
+
 export default function FilterMenu() {
     const dogs = useSelector(state => state.dog)
     const dispatch = useDispatch()
@@ -58,25 +59,25 @@ export default function FilterMenu() {
 
 
     return (
-        <div className={styles.container}>
-            <div>
-                <p className={styles.textOrder}> Show </p>
-                <button onClick={OrderApi} className={Api? styles.imageOrderClicked : styles.imageOrder}>Api</button>
-                <button onClick={OrderDatabase} className={Database? styles.imageOrderClicked : styles.imageOrder}>Created</button>
-                <button onClick={OrderAll} className={ALL? styles.imageOrderClicked : styles.imageOrder}>All</button>
+        <div>
+            <div className={styles.container}>
+                <div>
+            <img className={styles.imgMenu} src="https://imagenpng.com/wp-content/uploads/2016/09/Grupo-perros.png"/>
+                    <p className={styles.textOrder}> Show </p>
+                    <button onClick={OrderApi} className={Api? styles.imageOrderClicked : styles.imageOrder}>Api</button>
+                    <button onClick={OrderDatabase} className={Database? styles.imageOrderClicked : styles.imageOrder}>Created</button>
+                    <button onClick={OrderAll} className={ALL? styles.imageOrderClicked : styles.imageOrder}>All</button>
+                </div>
+                <div>
+                    <p className={styles.textOrder}> Order</p>
+                    <button className={AZ? styles.imageOrderClicked : styles.imageOrder} onClick={OrderA_Z}>A-Z</button>
+                    <button className={ZA? styles.imageOrderClicked : styles.imageOrder} onClick={OrderZ_A}>Z-A</button>
+                </div>
+                <select >
+                    <option value={'Peso'}>Peso</option>
+                    <option value={'Peso'}>Tamaño</option>
+                </select>
             </div>
-            <div>
-                <p className={styles.textOrder}> Order</p>
-                <button className={AZ? styles.imageOrderClicked : styles.imageOrder} onClick={OrderA_Z}>A-Z</button>
-                <button className={ZA? styles.imageOrderClicked : styles.imageOrder} onClick={OrderZ_A}>Z-A</button>
-            </div>
-            
-            <select >
-                <option value={'Peso'}>Peso</option>
-                <option value={'Peso'}>Tamaño</option>
-            </select>
-
         </div>
     )
-
 }

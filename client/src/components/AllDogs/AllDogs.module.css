@@ -3,7 +3,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: rgb(230, 231, 236);
     height: 100%;
 }
 
@@ -11,7 +11,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
 }
 
 .imgLoading {
@@ -24,6 +23,4 @@
     height: 100%;
 }
 
-.imagenPerrito {
-}
 
