@@ -23,44 +23,41 @@ export default function AllDogs (props) {
         }
     }, [])
 
-let dogss = ''
     return (
         <div className={styles.container}>
-            <div className={styles.DogsSide}>
-                <div className={styles.AllDogsDiv}> 
-                    {
-                        dogs.length?dogs.slice(
-                            (pages - 1 ) * perPage,
-                            (pages - 1 ) * perPage + perPage
-                        ).map( e => {
-                            return <Dogs 
-                                name={e.name}
-                                height={e.height} 
-                                weight={e.weight} 
-                                life_span={e.life_span}
-                                image={e.image}
-                                key={e.id}
-                                temperament={e.temperament}
-                            />
-                        }):
-                        <div className={styles.imgLoading}>
-                            <img className={styles.imagenPerrito} src="http://pawrider.com/assets/images/pages-loder.gif" alt="searching..." />
-                            <h1>Loading...</h1>
-                        </div>
-                    }
-                </div>     
+            <div className={styles.divFilters}>
+                <FilterMenu/>
+            </div>
+            <div className={styles.AllDogsDiv}> 
+                {
+                    dogs.length?dogs.slice(
+                        (pages - 1 ) * perPage,
+                        (pages - 1 ) * perPage + perPage
+                    ).map( e => {
+                        return <Dogs 
+                            name={e.name}
+                            height={e.height} 
+                            weight={e.weight} 
+                            life_span={e.life_span}
+                            image={e.image}
+                            key={e.id}
+                            temperament={e.temperament}
+                        />
+                    }):
+                    <div className={styles.imgLoading}>
+                        <img className={styles.imagenPerrito} src="http://pawrider.com/assets/images/pages-loder.gif" alt="searching..." />
+                        <h1>Loading...</h1>
+                    </div>
+                }
+            </div>
+            <div>
                 {
                     dogs.length?
                         <Pagination maxPages={maxPages} setPerPage={setPerPage}/>
                         :
                     null                 
                 }
-            </div>
-            <div className={styles.MenuSide}>
-                {
-                    !dogs.length?null:<FilterMenu/>
-                }
-            </div>
+            </div>     
         </div>
     )
 }

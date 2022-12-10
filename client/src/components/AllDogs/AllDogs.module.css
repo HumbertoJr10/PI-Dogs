@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100%;
     height: 100%;
@@ -18,9 +19,10 @@
     align-items: center;
 }
 
-.DogsSide {
+
+
+.divFilters {
     width: 100%;
-    height: 100%;
+    background-color: #219ebc;
+    
 }
-
-
