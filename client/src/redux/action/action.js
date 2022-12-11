@@ -12,6 +12,8 @@ export const FILTER_MAX_WEIGTH = 'FILTER_MAX_WEIGTH'
 export const FILTER_MIN_WEIGTH = 'FILTER_MIN_WEIGTH'
 export const FILTER_MAX_HEIGHT = 'FILTER_MAX_HEIGHT'
 export const FILTER_MIN_HEIGHT = 'FILTER_MIN_HEIGHT'
+export const SEARCH_DOG = 'SEARCH_DOG'
+export const RESET = 'RESET'
 
 
 //------------------------------
@@ -30,6 +32,19 @@ export function getDogs () {
         .then( data => {
             dispatch({
                 type: GET_DOGS,
+                payload: data
+            })
+        })
+    }
+}
+
+export function searchDog (nombre) {
+    return async function (dispatch) {
+        return fetch(`http://localhost:3001/dogs?name=${nombre}`)
+        .then( res => res.json())
+        .then( data => {
+            dispatch({
+                type: SEARCH_DOG,
                 payload: data
             })
         })
@@ -105,5 +120,11 @@ export function filterByMinHeight () {
     return {
         type: FILTER_MIN_HEIGHT,
         payload: true
+    }
+}
+
+export function reset() {
+    return {
+        type: RESET
     }
 }

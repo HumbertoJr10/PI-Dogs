@@ -11,7 +11,9 @@ import {
     FILTER_MAX_HEIGHT,
     FILTER_MIN_HEIGHT,
     FILTER_MAX_WEIGTH,
-    FILTER_MIN_WEIGTH
+    FILTER_MIN_WEIGTH,
+    SEARCH_DOG,
+    RESET
 } from "../action/action"
 //------------------
 
@@ -35,6 +37,11 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state, 
                 dog: [...state.dog, ...payload],
                 dogRespaldo: [...state.dog, ...payload]
+            }
+        case SEARCH_DOG:
+            return {
+                ...state,
+                dog: payload
             }
         case ORDER_AZ:
             return {
@@ -96,6 +103,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 dog: [...state.dog].sort((x,y) => parseInt(x.weightMin) - parseInt(y.weightMin))
+            }
+        case RESET:
+            return {
+                ...state,
+                dog: []
             }
         default:
             return {...state}

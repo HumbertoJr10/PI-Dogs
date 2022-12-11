@@ -21,7 +21,7 @@ export default function Pagination({maxPages}) {
         setInput(pages)
     }, [pages])
 
-    const onKeyDown = (e) => {
+    const onKeyDown = e => {
         if ( e.keyCode === 13 ) {
          
             if (e.target.value< 1 || e.target.value > maxPages || isNaN(e.target.value) ) {
