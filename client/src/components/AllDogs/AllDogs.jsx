@@ -36,8 +36,10 @@ export default function AllDogs (props) {
                     ).map( e => {
                         return <Dogs 
                             name={e.name}
-                            height={e.height} 
-                            weight={e.weight} 
+                            heightMin= {e.heightMin}
+                            heightMax={e.heightMax}
+                            weightMin={e.weightMin}
+                            weightMax={e.weightMax}
                             life_span={e.life_span}
                             image={e.image}
                             key={e.id}

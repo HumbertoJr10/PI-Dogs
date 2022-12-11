@@ -7,7 +7,11 @@ import {
     ORDER_BY_API, 
     ORDER_BY_DB, 
     CHANGE_PAGE,
-    ORDER_BY_ALL
+    ORDER_BY_ALL,
+    FILTER_MAX_HEIGHT,
+    FILTER_MIN_HEIGHT,
+    FILTER_MAX_WEIGTH,
+    FILTER_MIN_WEIGTH
 } from "../action/action"
 //------------------
 
@@ -72,6 +76,27 @@ const reducer = (state = initialState, { type, payload }) => {
                 pages: payload
             }
 
+        case FILTER_MAX_HEIGHT:
+            return {
+                ...state,
+                dog: [...state.dog].sort((x,y) => y.heightMax.localeCompare(x.heightMax))
+            }
+        case FILTER_MIN_HEIGHT:
+            return {
+                ...state,
+                dog: [...state.dog].sort((x,y) => x.heightMin.localeCompare(y.heightMin))
+            }
+        case FILTER_MAX_WEIGTH: 
+            return {
+                ...state,
+                dog: [...state.dog].sort((x,y) => parseInt(y.weightMax) - parseInt(x.weightMax))
+            }
+
+        case FILTER_MIN_WEIGTH:
+            return {
+                ...state,
+                dog: [...state.dog].sort((x,y) => parseInt(x.weightMin) - parseInt(y.weightMin))
+            }
         default:
             return {...state}
     }

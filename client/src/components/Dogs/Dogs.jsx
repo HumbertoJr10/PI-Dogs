@@ -2,7 +2,7 @@ import React from "react"
 import styles from './Dogs.module.css'
 
 
-export default function Dogs ( { name, height, weight, life_span, image, temperament } ) {
+export default function Dogs ( { name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperament } ) {
     return (
         <div className={styles.container}>
             <div className={styles.imgSide}>
@@ -13,7 +13,8 @@ export default function Dogs ( { name, height, weight, life_span, image, tempera
             </div>
             
             <div className={styles.FooterSide}>
-                <p>Raza de perro</p>
+                <p>Height: {heightMin} - {heightMax} Cm</p>//
+                <p>Weight: {weightMin} - {weightMax}</p>
             </div>
         </div>
     )

@@ -1,18 +1,18 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styles from './FiltersMenu.module.css'
-import { orderAZ, orderZA, orderByApi, orderByDb, changePage, orderByAll} from "../../redux/action/action"
+import { orderAZ, orderZA, orderByApi, orderByDb, changePage, orderByAll, filterByMaxHeight, filterByMinHeight, filterByMaxWeigth, filterByMinWeigth} from "../../redux/action/action"
 import { useState } from "react";
 
 
 
 export default function FilterMenu() {
     const dispatch = useDispatch()
-
     const [Open, setOpen] = useState(false)
     const [AlphabeticMenu, setAlphabeticMenu] = useState(false)
     const [FilterMenu, setFilterMenu] = useState(false)
-
+    const [HeightMax, setHeightMax] = useState(false) // Estado local para controlar el boton Heigth
+    const [WeigthMax, setWeigthMax] = useState(false) // Estado Local para controlar el boton Weigth
 
     function MenuShow () {
         setOpen(!Open)
@@ -60,6 +60,30 @@ export default function FilterMenu() {
         setOpen(!Open)
     }
 
+    const HeightOrder = () => {
+        if (!HeightMax) {
+            dispatch(filterByMaxHeight())
+            dispatch(changePage(1))
+            setHeightMax(!HeightMax)
+        } else {
+            dispatch(filterByMinHeight())
+            dispatch(changePage(1))
+            setHeightMax(!HeightMax)
+        }
+    }
+
+    const WeigthOrder = () => {
+        if (!WeigthMax) {
+            dispatch(filterByMaxWeigth())
+            dispatch(changePage(1))
+            setWeigthMax(!WeigthMax)
+        } else {
+            console.log('Ordena por peque')
+            dispatch(filterByMinWeigth())
+            dispatch(changePage(1))
+            setWeigthMax(!WeigthMax)
+        }
+    }
 
 
     return (
@@ -85,51 +109,19 @@ export default function FilterMenu() {
             }
             {
                 FilterMenu&&(<div className={styles.SubMenuDiv}>
-                    <div onClick={OrderA_Z} className={styles.SubMenuItems}>Weigth</div>
-                    <div onClick={OrderZ_A} className={styles.SubMenuItemsFinal}>Height</div>
+                    <div onClick={HeightOrder} className={styles.SubMenuItems}>
+                        {
+                            !HeightMax?"Height Max":"Height Min"
+                        }
+                    </div>
+                    <div onClick={WeigthOrder} className={styles.SubMenuItemsFinal}>
+                        {
+                            !WeigthMax?"Weigth Max":"Weigth Min"
+                        }
+                    </div>
                 </div>)
             }
         </div>
 
-        )
-}
-
-
-
-     /*
-        <div>
-            <div className={styles.container}>
-                <div className={styles.elementColumn}>
-                        <p className={styles.textOrder}> Show </p>
-                    <div className={styles.ElementOrderSide}>
-                        <button onClick={OrderApi} className={Api? styles.imageOrderClicked : styles.imageOrder}>Api</button>
-                        <button onClick={OrderDatabase} className={Database? styles.imageOrderClicked : styles.imageOrder}>Created</button>
-                        <button onClick={OrderAll} className={ALL? styles.imageOrderClicked : styles.imageOrder}>All</button>
-                    </div>
-                </div>
-
-            <div className={styles.alphabeticColumn}>
-                    <p className={styles.textOrder}> Alphabetic</p>
-                <div className={styles.alphabeticOrderSide}>
-                    <button className={AZ? styles.imageOrderClicked : styles.imageOrder} onClick={OrderA_Z}>A-Z</button>
-                    <button className={ZA? styles.imageOrderClicked : styles.imageOrder} onClick={OrderZ_A}>Z-A</button>
-                </div>
-            </div>
-
-            <div className={styles.orderListColumn}> 
-                <p className={styles.textOrder}> Order </p>
-                <div className={styles.List}>
-                <select >
-                    <option value={'Peso'}>Peso</option>
-                    <option value={'Peso'}>Tamaño</option>
-                </select>
-                <select >
-                    <option value={'Peso'}>Peso</option>
-                    <option value={'Peso'}>Tamaño</option>
-                </select>
-                </div>
-            </div>
-            </div>
-        </div>
     )
-    */
+}
