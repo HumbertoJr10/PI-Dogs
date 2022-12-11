@@ -5,3 +5,10 @@
 .startButton:hover {
     cursor: pointer
 }
+
+.background {
+    display: flex;
+    background-image: url("https://images7.alphacoders.com/126/1269810.jpg");
+    width: 100%;
+    height: 100%;
+}

@@ -87,7 +87,7 @@ export default function FilterMenu() {
 
 
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.MenuBar}>
                 <p onClick={MenuShow} className={!Open?styles.MenuButton:styles.MenuButtonSelected}>To show</p>
                 <p onClick={MenuAlphabetic} className={!AlphabeticMenu?styles.MenuButton:styles.MenuButtonSelected}>Alphabetic</p>

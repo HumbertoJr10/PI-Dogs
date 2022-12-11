@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const LandinPage = () => {
     
 
-    return (<div>
+    return (<div className={styles.background}>
         <h1> LANDING PAGE </h1>
         <Link to={'/home'}> 
             <button className={styles.startButton}>START</button>

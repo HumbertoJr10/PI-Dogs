@@ -1,10 +1,14 @@
-
+.container {
+    display: flex;
+    justify-content: center;
+}
 
 .MenuBar {
     display: flex;
+    justify-content: center;
     background-color: #219ebc;
     width: 100%;
-    cursor: pointer;
+    
 }
 
 .MenuButton {
@@ -14,6 +18,7 @@
 }
 .MenuButton:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .MenuButtonSelected {
@@ -29,8 +34,9 @@
     justify-content: center;
     align-items: center;
     position: absolute;
+    top: 101px;
     background-color: #219ebc;
-    width: 264px;
+    width: 265px;
     z-index: 3;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;

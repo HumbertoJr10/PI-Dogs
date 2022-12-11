@@ -22,11 +22,34 @@
     color: #939699;
     margin-left: 15px;
     text-decoration: none;
+    margin-right: 15px;
 }
 
 .navButton:hover {
     cursor: pointer;
     color: white;
+}
+
+.createButton {
+    color: #939699;
+    margin-left: 15px;
+    text-decoration: none;
+    margin-right: 15px;
+    border: 1px solid #939699;
+    border-radius: 20px;
+}
+
+.createButton .text {
+    color: white;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right:20px;
+    margin: 0;
+    border-radius: 20px;
+}
+
+.createButton .text:hover {
+    background-color: #219ebc;
 }
 
 
@@ -61,6 +84,12 @@
     cursor: pointer;
 }
 
+.accountActions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .imgSearch {
     width: 20px;
 }
@@ -68,7 +97,7 @@
 .profileIcon {
     width: 38px;
     border-radius: 100%;
-    margin-right: 20px;
+    margin-right: 15px;
 
 }
 
