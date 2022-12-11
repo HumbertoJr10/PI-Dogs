@@ -1,7 +1,9 @@
+import axios from 'axios'
 //-------ACTION TYPES -----------
 
 export const ADD_DOG = 'ADD_DOG'
 export const GET_DOGS = 'GET_DOGS'
+export const GET_TEMPERAMENT = 'GET_TEMPERAMENT'
 export const ORDER_AZ = 'ORDER_AZ'
 export const ORDER_ZA = 'ORDER_ZA'
 export const ORDER_BY_ALL = 'ORDER_BY_ALL'
@@ -19,9 +21,10 @@ export const RESET = 'RESET'
 //------------------------------
 
 export function addDog (dog) {
-    return {
-        type: ADD_DOG,
-        payload: dog
+    return async function (dispatch) {
+        const response = axios.post('http://localhost:3001/dogs', dog);
+        console.log(response);
+        return response;
     }
 }
 
@@ -32,6 +35,19 @@ export function getDogs () {
         .then( data => {
             dispatch({
                 type: GET_DOGS,
+                payload: data
+            })
+        })
+    }
+}
+
+export function getTemperament () {
+    return async function (dispatch) {
+        return fetch('http://localhost:3001/temperaments')
+        .then( res => res.json())
+        .then ( data => {
+            dispatch({
+                type: GET_TEMPERAMENT,
                 payload: data
             })
         })

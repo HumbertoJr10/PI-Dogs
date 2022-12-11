@@ -13,7 +13,8 @@ import {
     FILTER_MAX_WEIGTH,
     FILTER_MIN_WEIGTH,
     SEARCH_DOG,
-    RESET
+    RESET,
+    GET_TEMPERAMENT
 } from "../action/action"
 //------------------
 
@@ -35,9 +36,15 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_DOGS:
             return {
                 ...state, 
-                dog: [...state.dog, ...payload],
-                dogRespaldo: [...state.dog, ...payload]
+                dog: [...payload],
+                dogRespaldo: [...payload]
             }
+        case GET_TEMPERAMENT:
+            return {
+                ...state,
+                temperament: [...payload]
+            }
+        
         case SEARCH_DOG:
             return {
                 ...state,

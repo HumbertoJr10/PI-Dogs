@@ -5,7 +5,7 @@ import Pagination from "../Pagination/Pagination";
 import FilterMenu from "../FiltersMenu/FiltersMenu";
 import styles from './AllDogs.module.css'
 import { useEffect } from "react";
-import { getDogs } from "../../redux/action/action";
+import { getDogs, getTemperament } from "../../redux/action/action";
 
 
 
@@ -20,6 +20,7 @@ export default function AllDogs (props) {
     useEffect (()=> {
         if (!dogs.length) {
             dispatch(getDogs())
+            dispatch(getTemperament())
         }
     }, [])
 

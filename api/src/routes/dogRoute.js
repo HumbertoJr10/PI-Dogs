@@ -67,10 +67,7 @@ dogsRouter.post('/', async (req, res)=> {
         const TemperamentInDB = await Temperament.findAll({ where: {name: temperament }})
         console.log(TemperamentInDB)
         newDog.addTemperament(TemperamentInDB)
-        res.status(201).json({
-            creado: true,
-            data: newDog
-        })
+        res.status(201).json(newDog)
     } catch (error) {
         res.status(404).json({error: error.message})
     }

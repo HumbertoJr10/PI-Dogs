@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import AllDogs from './components/AllDogs/AllDogs';
 import LandinPage from './components/LandinPage/LandinPage';
+import BreedCreator from './components/BreedCreator/BreedCreator';
 
 
 
@@ -15,7 +16,8 @@ function App() {
         <Nav/>
           <Switch>
             <Route exact path='/' component={LandinPage}/>
-            <Route exact path='/home' component={AllDogs} />      
+            <Route exact path='/home' component={AllDogs} />
+            <Route exact path='/new-breed' component={BreedCreator} />     
           </Switch>
       </div>
     </BrowserRouter>

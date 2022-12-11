@@ -33,10 +33,9 @@ export default function Nav() {
         <div className={styles.container}>
             
             <div className={styles.navigationDiv}>   
-                <NavLink className={styles.navButton} to={'/'}>
+                <NavLink className={styles.navButton} to={'/home'}>
                     <p>Home</p>
                 </NavLink> 
-                
                 <p className={styles.navButton}>About</p>
             </div>
 
@@ -47,8 +46,8 @@ export default function Nav() {
                 </button>
             </div>
             <div className={styles.accountActions}>
-                <NavLink className={styles.createButton} to={'/'}>
-                    <p className={styles.text}> Create breed </p>
+                <NavLink className={styles.createButton} to={'/new-breed'}>
+                    <p className={styles.text}> New breed </p>
                 </NavLink>
                 <img className={styles.profileIcon} src="https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg"/>
             </div>
