@@ -44,9 +44,7 @@ export default function Nav() {
         }
     }
 
-    const CloseModal = () => {
-        setModalSearchFailed(!ModalSearchFailed)
-    }
+    
 
 
     return (
@@ -60,10 +58,20 @@ export default function Nav() {
             </div>
 
             <div className={styles.searchDiv}>
-                <input value={SearchText} ref={inputRef} onKeyDown={onKeyDown} onChange={handdleChange} className={styles.searchText} type={"text"} placeholder={'Search...'}></input>
-                <button onClick={searching} className={styles.searchButton}>
+                <input className={styles.searchText} 
+                    value={SearchText} 
+                    ref={inputRef} 
+                    onKeyDown={onKeyDown} 
+                    onChange={handdleChange} 
+                    type={"text"} 
+                    placeholder={'Search...'}>
+                        
+                    </input>
+                <button 
+                    onClick={searching} 
+                    className={styles.searchButton}>
                     <img className={styles.imgSearch} src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844432-magnifier-search-zoom_110300.png"/>
-                </button>
+                    </button>
             </div>
             <div className={styles.accountActions}>
                 <NavLink className={styles.createButton} to={'/new-breed'}>
