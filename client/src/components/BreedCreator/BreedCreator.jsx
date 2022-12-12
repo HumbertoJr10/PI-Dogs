@@ -18,14 +18,14 @@ const BreedCreator = () => {
         temperament: ''
     })
     const [errors, setErrors] = useState({
-        name: '',
-        heightMin: '',
-        heightMax: '',
-        weightMin: '',
-        weightMax: '',
-        life_span: '',
-        image: '',
-        temperament: ''
+        name: 'You must enter all the parameters',
+        heightMin: 'a',
+        heightMax: 'a',
+        weightMin: 'a',
+        weightMax: 'a',
+        life_span: 'a',
+        image: 'a',
+        temperament: 'a'
     })
     const [preImage, setPreImage] = useState("https://i.pinimg.com/originals/7a/fd/bb/7afdbb03e80c341e011ca963365fae1c.gif")
 
@@ -45,14 +45,14 @@ const BreedCreator = () => {
         })
         setPreImage("https://i.pinimg.com/originals/7a/fd/bb/7afdbb03e80c341e011ca963365fae1c.gif")
         setErrors({
-            name: '',
-            heightMin: '',
-            heightMax: '',
-            weightMin: '',
-            weightMax: '',
-            life_span: '',
-            image: '',
-            temperament: ''
+            name: 'You must enter all the parameters',
+            heightMin: 'a',
+            heightMax: 'a',
+            weightMin: 'a',
+            weightMax: 'a',
+            life_span: 'a',
+            image: 'a',
+            temperament: 'a'
         })
     }
     const handleChange = e => {
@@ -75,9 +75,6 @@ const BreedCreator = () => {
         }))
 
     }
-
-    
-
     const createBreed = () => {
         if (Object.keys(errors).length) {
             alert('You need to fix the mistakes')
@@ -140,6 +137,7 @@ const BreedCreator = () => {
                     <div className={styles.line}>
                         <p>Temperament:</p>
                     </div>
+
                 </div>
                 <div className={styles.inputSidde}>
                     <div className={styles.line}>
@@ -165,11 +163,21 @@ const BreedCreator = () => {
                 </div>
                 <div className={styles.previewSide}>
                     <img className={styles.previewImg} src={preImage} alt='Preview Image'/>
+                {
+                    Object.values(errors).length?<div>
+                        <p> ❌ {Object.values(errors)[0]}</p>
+                    </div>:<div>
+                        <p>✅ All Ok </p>
+                    </div>
+                }
+        
                 </div>
             </div>
             <div className={styles.buttonsSubmit}>
-                <button onClick={createBreed} disabled={Object.keys(errors).length?true:false} className={styles.buttonCreate}>Create</button>
-                <button onClick={clear} className={styles.buttonCreate}>Clear</button>
+                <div>
+                    <button onClick={createBreed} disabled={Object.keys(errors).length?true:false} className={styles.buttonCreate}>Create</button>
+                    <button onClick={clear} className={styles.buttonCreate}>Clear</button>
+                </div>
             </div>
         </div>
     </div>
