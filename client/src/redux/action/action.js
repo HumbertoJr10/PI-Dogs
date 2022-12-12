@@ -16,9 +16,17 @@ export const FILTER_MAX_HEIGHT = 'FILTER_MAX_HEIGHT'
 export const FILTER_MIN_HEIGHT = 'FILTER_MIN_HEIGHT'
 export const SEARCH_DOG = 'SEARCH_DOG'
 export const RESET = 'RESET'
+export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
 
 
 //------------------------------
+
+export function filterTemperament (temperament) {
+    return {
+        type: FILTER_BY_TEMPERAMENT,
+        payload: temperament
+    }
+}
 
 export function addDog (dog) {
     return async function (dispatch) {

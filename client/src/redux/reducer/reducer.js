@@ -14,7 +14,8 @@ import {
     FILTER_MIN_WEIGTH,
     SEARCH_DOG,
     RESET,
-    GET_TEMPERAMENT
+    GET_TEMPERAMENT,
+    FILTER_BY_TEMPERAMENT
 } from "../action/action"
 //------------------
 
@@ -38,6 +39,11 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state, 
                 dog: [...payload],
                 dogRespaldo: [...payload]
+            }
+        case FILTER_BY_TEMPERAMENT:
+            return {
+                ...state,
+                dog: payload
             }
         case GET_TEMPERAMENT:
             return {

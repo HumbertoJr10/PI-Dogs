@@ -150,10 +150,6 @@
     cursor: pointer;
 }
 
-.ModalButton:hover {
-       width: 52px;
-}
-
 .modalImgDone {
     width: 300px;
 }

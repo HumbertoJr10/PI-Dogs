@@ -14,7 +14,7 @@ const ModalWindow = ({children, modalState, setModalState, title = 'Alert', head
                 <h3> {title} </h3>
               </div>
             }
-            <button onClose={()=> setModalState(!modalState)} className={styles.CloseButton}>X</button>
+            <button onClick={()=> setModalState(!modalState)} className={styles.CloseButton}>X</button>
               {children}
             </div>
         </div>

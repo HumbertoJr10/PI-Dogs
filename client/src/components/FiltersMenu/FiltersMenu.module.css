@@ -36,7 +36,7 @@
     position: absolute;
     top: 101px;
     background-color: #219ebc;
-    width: 265px;
+    width: 400px;
     z-index: 3;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -74,4 +74,40 @@
     cursor: pointer;
     color: #ffff;
     background-color: #219ebc;
+}
+
+.SubMenuTemperament {
+    position: absolute;
+    width: 397px;
+    height: 300px;
+    background-color: #0077b6;
+    z-index: 1;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    top: 100px;
+    overflow: auto;
+}
+
+.SubMenuTemperament::-webkit-scrollbar {
+    width: 7px;
+}
+
+.SubMenuTemperament::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.temper {
+    color: white;
+    margin: 0;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.temper:hover {
+    background-color: #219ebc;
+    
 }

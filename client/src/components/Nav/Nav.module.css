@@ -104,3 +104,7 @@
 .profileIcon:hover {
     cursor: pointer;
 }
+
+.img404NotFoundDog {
+    margin-left: -70px;
+}

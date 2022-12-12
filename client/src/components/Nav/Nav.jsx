@@ -3,11 +3,13 @@ import styles from './Nav.module.css'
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changePage, reset, searchDog } from "../../redux/action/action";
+import ModalWindow from "../ModalWindow/ModalWindow";
 
 
 export default function Nav() {
     const [SearchText, setSearchText] = useState('')
-    let dogs = useSelector( state => state.dog)
+    const [ModalSearchFailed, setModalSearchFailed] = useState(false)
+    let dogs = useSelector( state => state.dogRespaldo)
     const dispatch = useDispatch() 
     const inputRef = React.createRef()
 
@@ -16,16 +18,27 @@ export default function Nav() {
     }
 
     const searching = () => {
-        dispatch(reset())
-        dispatch(searchDog(SearchText))
-        dispatch(changePage(1))
-    }
-    const onKeyDown = e => {
-        if (e.keyCode==13) {
+        const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
+        if (finded.length) {
             dispatch(reset())
             dispatch(searchDog(SearchText))
             dispatch(changePage(1))
-            e.target.value= ''
+        } else {
+            setModalSearchFailed(!ModalSearchFailed)
+        }
+    }
+
+    const onKeyDown = e => {
+        if (e.keyCode==13) {
+            const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
+            if (finded.length) {
+                dispatch(reset())
+                dispatch(searchDog(SearchText))
+                dispatch(changePage(1))
+                e.target.value= ''
+            } else {
+                setModalSearchFailed(!ModalSearchFailed)
+            }
         }
     }
 
@@ -51,6 +64,14 @@ export default function Nav() {
                 </NavLink>
                 <img className={styles.profileIcon} src="https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg"/>
             </div>
+            <ModalWindow
+            modalState={ModalSearchFailed}
+            setModalState={setModalSearchFailed}
+            >   
+                <img className={styles.img404NotFoundDog} src="https://cdn-icons-png.flaticon.com/256/6028/6028541.png" alt="404notDog"/>
+                <h2>No results</h2>
+                <button onClick={()=> setModalSearchFailed(!ModalSearchFailed)}> wolty</button>
+            </ModalWindow>
         </div>
     )
 }
