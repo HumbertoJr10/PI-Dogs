@@ -50,7 +50,6 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 temperament: [...payload]
             }
-        
         case SEARCH_DOG:
             return {
                 ...state,
@@ -71,7 +70,6 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 dog: [...state.dogRespaldo]
             }
-
         case ORDER_BY_API:
             return {
                 ...state,
@@ -95,7 +93,6 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 pages: payload
             }
-
         case FILTER_MAX_HEIGHT:
             return {
                 ...state,
@@ -111,7 +108,6 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 dog: [...state.dog].sort((x,y) => parseInt(y.weightMax) - parseInt(x.weightMax))
             }
-
         case FILTER_MIN_WEIGTH:
             return {
                 ...state,

@@ -24,6 +24,7 @@ export default function Nav() {
             dispatch(searchDog(SearchText))
             dispatch(changePage(1))
         } else {
+            setSearchText('')
             setModalSearchFailed(!ModalSearchFailed)
         }
     }
@@ -35,12 +36,18 @@ export default function Nav() {
                 dispatch(reset())
                 dispatch(searchDog(SearchText))
                 dispatch(changePage(1))
-                e.target.value= ''
+                setSearchText('')
             } else {
+                setSearchText('')
                 setModalSearchFailed(!ModalSearchFailed)
             }
         }
     }
+
+    const CloseModal = () => {
+        setModalSearchFailed(!ModalSearchFailed)
+    }
+
 
     return (
         <div className={styles.container}>
@@ -53,7 +60,7 @@ export default function Nav() {
             </div>
 
             <div className={styles.searchDiv}>
-                <input ref={inputRef} onKeyDown={onKeyDown} onChange={handdleChange} className={styles.searchText} type={"text"} placeholder={'Search...'}></input>
+                <input value={SearchText} ref={inputRef} onKeyDown={onKeyDown} onChange={handdleChange} className={styles.searchText} type={"text"} placeholder={'Search...'}></input>
                 <button onClick={searching} className={styles.searchButton}>
                     <img className={styles.imgSearch} src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844432-magnifier-search-zoom_110300.png"/>
                 </button>
@@ -70,7 +77,7 @@ export default function Nav() {
             >   
                 <img className={styles.img404NotFoundDog} src="https://cdn-icons-png.flaticon.com/256/6028/6028541.png" alt="404notDog"/>
                 <h2>No results</h2>
-                <button onClick={()=> setModalSearchFailed(!ModalSearchFailed)}> wolty</button>
+                <button onClick={CloseModal}> wolty</button>
             </ModalWindow>
         </div>
     )
