@@ -34,7 +34,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 101px;
+    top: 99px;
     background-color: #219ebc;
     width: 400px;
     z-index: 3;
@@ -86,7 +86,7 @@
     border-bottom-right-radius: 20px;
     display: flex;
     flex-direction: column;
-    top: 100px;
+    top: 99px;
     overflow: auto;
 }
 

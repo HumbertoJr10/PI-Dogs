@@ -1,0 +1,54 @@
+.container {
+    height: 150px;
+    background-color: #252422;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.leftSide {
+    width: 33%;
+    height: 100%;
+    font-family: 'Roboto';
+}
+
+.centerSide {
+    width: 33%;
+    height: 100%;
+}
+
+.rightSide {
+    width: 33%;
+    height: 100%;
+}
+
+.iconSocialLink {
+    width: 50px;
+    margin-left: 20px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.iconSocialGit {
+    width: 50px;
+    cursor: pointer;
+}
+
+.IconContactContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    color: #0077b6;
+}
+
+.IconContactContainer h2:hover {
+    color: #219ebc;
+}
+
+
+.iconside {
+    display: flex;
+    justify-content: center;
+}

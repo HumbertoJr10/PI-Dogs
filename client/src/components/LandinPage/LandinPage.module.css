@@ -7,8 +7,9 @@
 }
 
 .background {
-    display: flex;
+    position: absolute;
     background-image: url("https://images7.alphacoders.com/126/1269810.jpg");
-    width: 100%;
+    background-size: 100%;
     height: 100%;
+    width: 100%;
 }

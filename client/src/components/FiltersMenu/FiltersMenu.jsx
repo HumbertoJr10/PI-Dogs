@@ -56,11 +56,13 @@ export default function FilterMenu() {
     const OrderA_Z = () => {
         dispatch(orderAZ())
         setAlphabeticMenu(false)
+        dispatch(changePage(1))
     }
 
     const OrderZ_A = () => {
         dispatch(orderZA())
         setAlphabeticMenu(false)
+        dispatch(changePage(1))
     }
 
     const OrderApi = () => {
@@ -79,6 +81,7 @@ export default function FilterMenu() {
     const OrderAll = () => {
         dispatch(orderByAll())
         setOpen(!Open)
+        dispatch(changePage(1))
     }
 
     const HeightOrder = () => {

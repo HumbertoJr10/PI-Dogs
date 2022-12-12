@@ -76,8 +76,7 @@ export default function Nav() {
             setModalState={setModalSearchFailed}
             >   
                 <img className={styles.img404NotFoundDog} src="https://cdn-icons-png.flaticon.com/256/6028/6028541.png" alt="404notDog"/>
-                <h2>No results</h2>
-                <button onClick={CloseModal}> wolty</button>
+                <h2 className={styles.modalMessage}>No result</h2>
             </ModalWindow>
         </div>
     )

@@ -4,6 +4,7 @@ import Nav from './components/Nav/Nav';
 import AllDogs from './components/AllDogs/AllDogs';
 import LandinPage from './components/LandinPage/LandinPage';
 import BreedCreator from './components/BreedCreator/BreedCreator';
+import { Footer } from './components/Footer/Footer';
 
 
 // https://pngimage.net/wp-content/uploads/2018/05/cachorro-feliz-png-2.png
@@ -19,6 +20,7 @@ function App() {
             <Route exact path='/home' component={AllDogs} />
             <Route exact path='/new-breed' component={BreedCreator} />     
           </Switch>
+          <Footer/>
       </div>
     </BrowserRouter>
   );
