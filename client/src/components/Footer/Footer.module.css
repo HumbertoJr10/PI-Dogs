@@ -4,12 +4,14 @@
     margin-top: 100px;
     display: flex;
     justify-content: space-evenly;
+    border-top: 4px solid #0077b6
 }
 
 .leftSide {
     width: 33%;
     height: 100%;
     font-family: 'Roboto';
+    
 }
 
 .centerSide {
