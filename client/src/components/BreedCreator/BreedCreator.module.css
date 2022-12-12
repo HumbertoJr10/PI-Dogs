@@ -144,3 +144,16 @@
 .done {
     position: absolute;
 }
+
+.ModalButton {
+    width: 50px;
+    cursor: pointer;
+}
+
+.ModalButton:hover {
+       width: 52px;
+}
+
+.modalImgDone {
+    width: 300px;
+}
