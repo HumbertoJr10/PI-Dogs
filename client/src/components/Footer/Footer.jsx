@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Footer.module.css'
 import linkedin from '../../asses/Linkedin.png'
 import github from '../../asses/Github.png'
+import { NavLink } from 'react-router-dom'
 
 export const Footer = () => {
   return (
@@ -11,11 +12,14 @@ export const Footer = () => {
             <div className={styles.IconContactContainer}>
                 <h2>Contact</h2>
                 <div className={styles.iconside}>
+                  <a href="https://github.com/HumbertoJr10" target="_blank" >
                     <img className={styles.iconSocialGit} src={github} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/humbertojrguerra/" target="_blank" >
                     <img className={styles.iconSocialLink} src={linkedin} />
+                  </a>
                 </div> 
             </div>
-
         </div>
         <div className={styles.centerSide}>
 
