@@ -17,9 +17,17 @@ export const FILTER_MIN_HEIGHT = 'FILTER_MIN_HEIGHT'
 export const SEARCH_DOG = 'SEARCH_DOG'
 export const RESET = 'RESET'
 export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
+export const DARK_MODE = 'DARK_MODE'
 
 
 //------------------------------
+
+export function darkMode (status) {
+    return {
+        type: DARK_MODE,
+        payload: status
+    }
+}
 
 export function filterTemperament (temperament) {
     return {

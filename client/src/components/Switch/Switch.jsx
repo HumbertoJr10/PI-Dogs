@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import styles from './Switch.module.css'
 import Darkimg from '../../asses/Dark.png'
-import Lightimg from '../../asses/Light.png'
+import { useDispatch, useSelector } from "react-redux";
+import { darkMode } from '../../redux/action/action';
 
 
 const Switch = () => {
-    const [Dark, setDark] = useState(false)
+    const Dark = useSelector(state => state.DarkMode)
+    const dispatch = useDispatch()
+    
 
   return (
     <div className={styles.Container}>
         <div className={styles.Wrapper}>
             <div className={styles.bgc}>
-                <button onClick={()=>setDark(!Dark)} className={Dark?styles.ButtonSwitch_Dark:styles.ButtonSwitch}>
+                <button onClick={()=>{dispatch(darkMode(!Dark))}} className={Dark?styles.ButtonSwitch_Dark:styles.ButtonSwitch}>
                 {
                     Dark?<img className={styles.DarkIcon} src={Darkimg}/>:<img className={styles.LightIcon} src="https://cdn4.iconfinder.com/data/icons/multimedia-flat-30px/30/sun_light_mode_day-512.png"/>
                 }

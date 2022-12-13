@@ -15,7 +15,8 @@ import {
     SEARCH_DOG,
     RESET,
     GET_TEMPERAMENT,
-    FILTER_BY_TEMPERAMENT
+    FILTER_BY_TEMPERAMENT,
+    DARK_MODE
 } from "../action/action"
 //------------------
 
@@ -24,11 +25,17 @@ const initialState = {
     dog: [],
     temperament: [],
     dogRespaldo: [],
-    userLogged: []
+    userLogged: [],
+    DarkMode: false
 }
 
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
+        case DARK_MODE:
+            return {
+                ...state,
+                DarkMode: payload
+            }
         case ADD_DOG:
             return {
                 ...state,
