@@ -96,12 +96,12 @@ const reducer = (state = initialState, { type, payload }) => {
         case FILTER_MAX_HEIGHT:
             return {
                 ...state,
-                dog: [...state.dog].sort((x,y) => y.heightMax.localeCompare(x.heightMax))
+                dog: [...state.dog].sort((x,y) => parseInt(y.heightMax) - parseInt(x.heightMax))
             }
         case FILTER_MIN_HEIGHT:
             return {
                 ...state,
-                dog: [...state.dog].sort((x,y) => x.heightMin.localeCompare(y.heightMin))
+                dog: [...state.dog].sort((x,y) => parseInt(x.heightMin) - parseInt(y.heightMin))
             }
         case FILTER_MAX_WEIGTH: 
             return {
