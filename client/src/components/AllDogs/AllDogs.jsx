@@ -17,6 +17,8 @@ export default function AllDogs (props) {
     const maxPages = Math.ceil(dogs.length / perPage) //Cantidad de Paginas Totales
     const dispatch = useDispatch()
 
+    const Dark = useSelector(state => state.DarkMode)
+
     useEffect (()=> {
         if (!dogs.length) {
             dispatch(getDogs())
@@ -25,7 +27,7 @@ export default function AllDogs (props) {
     }, [])
 
     return (
-        <div className={styles.container}>
+        <div className={Dark?styles.container_dark:styles.container}>
             <div className={styles.divFilters}>
                 <FilterMenu/>
             </div>

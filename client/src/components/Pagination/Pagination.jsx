@@ -6,6 +6,7 @@ import { changePage } from "../../redux/action/action";
 
 export default function Pagination({maxPages}) {
     const pages = useSelector( state => state.pages )
+    const Dark = useSelector( state => state.DarkMode)
     const dispatch = useDispatch()
     const [input, setInput] = useState(1)
 
@@ -39,17 +40,17 @@ export default function Pagination({maxPages}) {
     return (
         <div className={styles.divPagination}>
             <button 
-            className={styles.buttonPage} 
+            className={Dark?styles.buttonPage_dark:styles.buttonPage} 
             onClick={previousPage}
             disabled={pages<=1}>◀ PREV</button>
 
         <div className={styles.pages}>
-            <input onChange={onChange} onKeyDown={onKeyDown} className={styles.inputPage} type="text" value={input}/>
-            <p> Page {pages} / {maxPages}</p>
+            <input onChange={onChange} onKeyDown={onKeyDown} className={Dark?styles.inputPage_dark:styles.inputPage} type="text" value={input}/>
+            <p className={Dark?styles.p_dark:null}> Page {pages} / {maxPages}</p>
         </div>
 
             <button 
-                className={styles.buttonPage} 
+                className={Dark?styles.buttonPage_dark:styles.buttonPage} 
                 onClick={nextPage}
                 disabled={pages>=maxPages}> NEXT ▶</button>
         </div>

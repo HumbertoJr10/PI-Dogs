@@ -5,6 +5,21 @@
     border-radius: 20px;
     background-color: white;
     filter: drop-shadow(2px 2px 2px rgb(211, 208, 208));
+    transition: .2s all ease-in;
+}
+
+.container_dark {
+    width: 600px;
+    height: 400px;
+    margin: 15px;
+    border-radius: 20px;
+    background-color: #252422;
+    filter: drop-shadow(2px 2px 2px rgb(65, 64, 64));
+    transition: .2s all ease-in;
+}
+
+.container_dark:hover {
+    cursor: pointer;
 }
 
 .container:hover {
@@ -12,6 +27,10 @@
 }
 
 .container:hover :first-child{
+    filter: brightness(105%)
+}
+
+.container_dark:hover :first-child{
     filter: brightness(105%)
 }
 
@@ -47,14 +66,19 @@
 
 }
 
-
-
-
 .NameSide {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 15%;
+}
+
+.NameSide_dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    
 }
 
 .FooterSide {
@@ -63,6 +87,17 @@
     align-items: center;
     height: 15%;
     border-top: 1px solid #d6d3d2;
+    transition: .2s all ease-in;
+}
+
+.FooterSide_dark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    border-top: 1px solid #696766;
+    transition: .2s all ease-in;
+    color: white;
 }
 
 .imagen {
@@ -79,4 +114,14 @@
     font-style: inherit;
     font-family: inherit;
     vertical-align: baseline;   
+    transition: .2s all ease-in; 
+}
+
+.CardName_dark {
+    color: white;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: inherit;
+    vertical-align: baseline; 
+    transition: .2s all ease-in; 
 }

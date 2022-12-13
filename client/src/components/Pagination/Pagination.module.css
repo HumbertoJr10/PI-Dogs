@@ -15,10 +15,28 @@
     color: #219ebc;
     border: none;
     filter: drop-shadow(2px 2px 2px rgb(211, 208, 208));
+    transition: .2s all ease-in;
+}
+
+.buttonPage_dark {
+    border-radius: 5px;
+    height: 50px;
+    width: 120px;
+    background-color: #252422;
+    color: #219ebc;
+    border: none;
+    filter: drop-shadow(2px 2px 2px rgb(85, 85, 85));
+    transition: .2s all ease-in;
 }
 
 .buttonPage:disabled:hover {
     background-color: white;
+    color: #219ebc;
+    cursor: not-allowed;
+}
+
+.buttonPage_dark:disabled:hover {
+    background-color: #252422;
     color: #219ebc;
     cursor: not-allowed;
 }
@@ -28,6 +46,13 @@
     background-color: #219ebc;
     color: #ffff;
 }
+
+.buttonPage_dark:hover {
+    cursor: pointer;
+    background-color: #219ebc;
+    color: #ffff;
+}
+
 .pages {
     display: flex;
     justify-content: center;
@@ -41,12 +66,39 @@
     width: 60px;
     text-align: center;
     border: 1px solid rgb(168, 168, 168);
+    transition: all .2s ease-in;
+}
+
+.inputPage_dark {
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    border: 1px solid rgb(168, 168, 168);
+    background-color: #252422;
+    color: white;
+    transition: all .2s ease-in;
+}
+
+.inputPage_dark {
+    outline: none;
 }
 
 .inputPage:focus {
     outline: none;
 }
 
+.inputPage_dark:hover {
+    cursor: text;
+}
+
 .inputPage:hover {
     cursor: text;
+}
+
+.p_dark {
+    color: white;
+    transition: all .2s ease-in;
 }
