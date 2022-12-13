@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './Footer.module.css'
 import linkedin from '../../asses/Linkedin.png'
 import github from '../../asses/Github.png'
-import { NavLink } from 'react-router-dom'
 
 export const Footer = () => {
   return (
