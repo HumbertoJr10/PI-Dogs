@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import styles from './BreedCreator.module.css'
 import { isUrl, validationErrors } from './Validation'
 import { addDog, getDogs } from '../../redux/action/action'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import { NavLink } from 'react-router-dom';
 
 
 const BreedCreator = () => {
+
+    const Dark = useSelector(state => state.DarkMode)
 
     const [newDog, setNewDog] = useState({
         name: '',
@@ -116,7 +118,7 @@ const BreedCreator = () => {
 
   return (
     <div>
-        <div className={styles.container}>
+        <div className={Dark?styles.container_dark:styles.container}>
             <img className={styles.image} src='https://bullymake.com/assets/img/tbg-dog.png' alt="pet"/>
             <div className={styles.Form}>
                 <div className={styles.title}>
@@ -178,10 +180,10 @@ const BreedCreator = () => {
             
                     </div>
                 </div>
-                <div className={styles.buttonsSubmit}>
+                <div className={Dark?styles.buttonsSubmit_dark:styles.buttonsSubmit}>
                     <div>
-                        <button onClick={createBreed} disabled={Object.keys(errors).length?true:false} className={styles.buttonCreate}>Create</button>
-                        <button onClick={clear} className={styles.buttonCreate}>Clear</button>
+                        <button onClick={createBreed} disabled={Object.keys(errors).length?true:false} className={Dark?styles.buttonCreate_dark:styles.buttonCreate}>Create</button>
+                        <button onClick={clear} className={Dark?styles.buttonCreate_dark:styles.buttonCreate}>Clear</button>
                     </div>
                 </div>
             </div>

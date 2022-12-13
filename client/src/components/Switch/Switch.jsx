@@ -11,7 +11,7 @@ const Switch = () => {
 
     const THEME = () => {
         if (!Dark) {
-            document.body.style.backgroundColor = "rgb(20, 20, 20)";
+            document.body.style.backgroundColor = "#24242c";
             dispatch(darkMode(!Dark))
         } else {
             document.body.style.backgroundColor = "rgb(230, 231, 236)"

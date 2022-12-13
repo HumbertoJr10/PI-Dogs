@@ -7,6 +7,20 @@
     height: 400px;
     margin: auto;
     margin-top: 20px;
+    transition: all .2s ease-in;
+}
+
+.container_dark {
+    background-color: #1B1A1F;
+    color: white;
+    display: flex;
+    border-radius: 20px;
+    filter: drop-shadow(2px 2px 2px rgb(63, 60, 60));
+    width: 80%;
+    height: 400px;
+    margin: auto;
+    margin-top: 20px;
+    transition: all .2s ease-in;
 }
 
 .image {
@@ -101,6 +115,14 @@
     align-items: center;
 }
 
+.buttonsSubmit_dark {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .buttonsSubmit button {
     margin-left: 15px;
     margin-right: 15px;
@@ -115,7 +137,27 @@
     filter: drop-shadow(2px 2px 2px rgb(211, 208, 208));
 }
 
+.buttonsSubmit_dark button {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 5px;
+    position: relative;
+    top: -10px;
+    height: 25px;
+    width: 120px;
+    background-color: #1B1A1F;
+    color: #219ebc;
+    border: 1px solid #219ebc;
+    filter: drop-shadow(2px 2px 2px rgb(44, 44, 44));
+}
+
 .buttonCreate:hover {
+    cursor: pointer;
+    background-color: #219ebc;
+    color: #ffff;
+}
+
+.buttonCreate_dark:hover {
     cursor: pointer;
     background-color: #219ebc;
     color: #ffff;
@@ -127,10 +169,22 @@
     cursor: not-allowed;
 }
 
+.buttonCreate_dark:disabled {
+    border: 1px solid red;
+    color: red;
+    cursor: not-allowed;
+}
+
 .buttonsSubmit button:disabled:hover {
     border: 1px solid red;
     color: red;
     background-color: white;
+}
+
+.buttonsSubmit_dark button:disabled:hover {
+    border: 1px solid red;
+    color: red;
+    background-color: #1B1A1F;
 }
 
 .errores {
