@@ -1,0 +1,64 @@
+.Container {
+    width: 100%;
+    transition: 0.5s all ease-in;
+}
+
+.Wrapper {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.bgc {
+    position: relative;
+    width: 56px;
+    height: 30px;
+    border-radius: 38px;
+    background-color: gray;
+    transition: 1s all ease-in;
+}
+
+.ButtonSwitch {
+    position: absolute;
+    cursor: pointer;
+    bottom: 5px;
+    left: 5px;
+    width: 21px;
+    height: 20px;
+    border: none;
+    border-radius: 58%;
+    background-color: #fff;
+    outline: none;
+    transition: .2s all ease-in;
+}
+
+.ButtonSwitch_Dark {
+    position: absolute;
+    cursor: pointer;
+    bottom: 5px;
+    left: 30px;
+    width: 21px;
+    height: 20px;
+    border: none;
+    border-radius: 58%;
+    background-color: #fff;
+    outline: none;
+    transition: .2s all ease-in;
+}
+
+.DarkIcon {
+    width: 20px;
+    position: relative;
+    right: 5px;
+    bottom: 1px;
+}
+
+.LightIcon {
+    width: 20px;
+    position: relative;
+    right: 5px;
+    bottom: 1px;
+}

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changePage, reset, searchDog } from "../../redux/action/action";
 import ModalWindow from "../ModalWindow/ModalWindow";
+import Switch from "../Switch/Switch";
 
 
 export default function Nav() {
@@ -73,12 +74,15 @@ export default function Nav() {
                     <img className={styles.imgSearch} src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844432-magnifier-search-zoom_110300.png"/>
                     </button>
             </div>
+
             <div className={styles.accountActions}>
+                <Switch/>
                 <NavLink className={styles.createButton} to={'/new-breed'}>
                     <p className={styles.text}> New breed </p>
                 </NavLink>
                 <img className={styles.profileIcon} src="https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg"/>
             </div>
+
             <ModalWindow
             modalState={ModalSearchFailed}
             setModalState={setModalSearchFailed}
