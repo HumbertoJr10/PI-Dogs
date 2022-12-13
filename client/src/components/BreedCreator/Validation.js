@@ -4,11 +4,20 @@ export function isUrl(s) {
     return regexp.test(s);
 }
 
-export function validationErrors (form) {
+export function validationErrors (form, allDogs) {
     let errors = {}
+
+    if (!allDogs.length) {
+        errors.name= 'Error in Database'
+    }
 
     if (!form.name) {
         errors.name = 'Must include a name'
+    }
+
+    let duplicated = allDogs.filter( e=> e.name.toUpperCase()===form.name.toUpperCase())
+    if (duplicated.length) {
+        errors.name= 'This name already exist'
     }
 
     if (form.heightMin*1<1) {

@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './BreedCreator.module.css'
 import { isUrl, validationErrors } from './Validation'
-import { addDog, getDogs } from '../../redux/action/action'
+import { addDog, getDogs, getTemperament } from '../../redux/action/action'
 import { useDispatch, useSelector } from "react-redux";
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import { NavLink } from 'react-router-dom';
@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 const BreedCreator = () => {
 
     const Dark = useSelector(state => state.DarkMode)
+    const allDogs = useSelector(state => state.dogRespaldo)
 
     const [newDog, setNewDog] = useState({
         name: '',
@@ -33,6 +34,7 @@ const BreedCreator = () => {
     })
     const [preImage, setPreImage] = useState("https://i.pinimg.com/originals/7a/fd/bb/7afdbb03e80c341e011ca963365fae1c.gif")
 
+    const [ModalDuplicated, setModalDuplicated] = useState(false)
     const [modalState, setModalState] = useState(false)
 
     const dispatch = useDispatch()
@@ -75,17 +77,20 @@ const BreedCreator = () => {
             }
         }
 
+
         setErrors(validationErrors({
             ...newDog,
             [e.target.name]: e.target.value
-        }))
-
+        }, allDogs))
     }
     const createBreed = () => {
         if (Object.keys(errors).length) {
             alert('You need to fix the mistakes')
         } else {
-            dispatch(addDog(newDog))
+            dispatch(addDog({
+                ...newDog,
+                life_span: newDog.life_span + ' years'
+            }))
             dispatch(getDogs())
     
             setNewDog({
@@ -115,6 +120,13 @@ const BreedCreator = () => {
 
 //------------------------
     
+
+useEffect (()=> {
+    if (!allDogs.length) {
+        dispatch(getDogs())
+        dispatch(getTemperament())
+    }
+}, [])
 
   return (
     <div>
