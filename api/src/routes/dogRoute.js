@@ -7,14 +7,6 @@ const { Dog, Temperament } = require('../db')
 
 const dogsRouter = Router();
 
-dogsRouter.get('/prueba', async (req,res)=> {
-    try {
-        let result = await getDatabase()
-        res.status(200).json(result)
-    } catch (error) {
-        res.status(400).json({error: error.message})
-    }
-})
 
 dogsRouter.get('/', async (req,res)=> {
     try {

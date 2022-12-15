@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+
+}
+
+.detailSide {
+    color: black;
+}
+
+.mediaSide {
+    color: black;
+}

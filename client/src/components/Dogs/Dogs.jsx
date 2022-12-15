@@ -1,6 +1,7 @@
 import React from "react"
 import styles from './Dogs.module.css'
 import { useSelector } from 'react-redux'
+import { NavLink } from "react-router-dom"
 
 
 export default function Dogs ( { 
@@ -17,6 +18,7 @@ export default function Dogs ( {
     const Dark = useSelector(state => state.DarkMode)
 
     return (
+        <NavLink to={`/Breed/${name}`}>
         <div className={Dark?styles.container_dark:styles.container}>
             <div className={styles.imgSide}>
                 <img className={styles.imagen} src={image|| "http://pawrider.com/assets/images/pages-loder.gif"} alt='none' />
@@ -36,5 +38,6 @@ export default function Dogs ( {
                 <p>{temperament || 'Unknown'}</p>
             </div>
         </div>
+        </NavLink>
     )
 }

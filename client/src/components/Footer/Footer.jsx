@@ -3,7 +3,7 @@ import styles from './Footer.module.css'
 import linkedin from '../../asses/Linkedin.png'
 import github from '../../asses/Github.png'
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <div className={styles.container}>
         <div className={styles.leftSide}>
@@ -29,3 +29,5 @@ export const Footer = () => {
     </div>
   )
 }
+
+export default Footer;
