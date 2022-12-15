@@ -1,5 +1,5 @@
 .container {
-    width: 350px;
+    width: 380px;
     height: 300px;
     margin: 15px;
     border-radius: 20px;
@@ -9,14 +9,13 @@
 }
 
 .container_dark {
-    width: 350px;
+    width: 380px;
     height: 300px;
     margin: 15px;
     border-radius: 20px;
     background-color: #1B1A1F;
     filter: drop-shadow(2px 2px 2px rgb(65, 64, 64));
     transition: .2s all ease-in;
-    
 }
 
 .container_dark:hover {
@@ -56,7 +55,7 @@
 .stats {
     color: white;
     position: absolute;
-    top: 70%;
+    top: 60%;
 }
 
 .stats p {
