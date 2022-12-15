@@ -1,6 +1,6 @@
 .container {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 300px;
     margin: 15px;
     border-radius: 20px;
     background-color: white;
@@ -9,8 +9,8 @@
 }
 
 .container_dark {
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 300px;
     margin: 15px;
     border-radius: 20px;
     background-color: #1B1A1F;

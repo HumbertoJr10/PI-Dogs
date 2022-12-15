@@ -3,6 +3,8 @@ import styles from './Switch.module.css'
 import Darkimg from '../../asses/Dark.png'
 import { useDispatch, useSelector } from "react-redux";
 import { darkMode } from '../../redux/action/action';
+import darkmodeBackground from '../../asses/DarkBackground.png'
+import lightmodeBackground from '../../asses/LightBackground.png'
 
 
 const Switch = () => {
@@ -11,10 +13,10 @@ const Switch = () => {
 
     const THEME = () => {
         if (!Dark) {
-            document.body.style.backgroundColor = "#24242c";
-            dispatch(darkMode(!Dark))
+            document.body.style.backgroundImage = "url("+darkmodeBackground+")";
+            dispatch(darkMode(!Dark))   
         } else {
-            document.body.style.backgroundColor = "rgb(230, 231, 236)"
+            document.body.style.backgroundImage = 'url('+lightmodeBackground+')';
             dispatch(darkMode(!Dark))
         }
     }
