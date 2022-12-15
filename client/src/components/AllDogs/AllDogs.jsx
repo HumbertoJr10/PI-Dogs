@@ -9,7 +9,6 @@ import { getDogs, getTemperament } from "../../redux/action/action";
 
 
 
-
 export default function AllDogs (props) {
     const pages = useSelector(state => state.pages) // pagina en la que nos encontramos ESTADO GLOBAL
     const [perPage, setPerPage] = useState(6) // Cantidad de elementos a mostrar en cada pagina
@@ -27,7 +26,7 @@ export default function AllDogs (props) {
     }, [])
 
     return (
-        <div className={Dark?styles.container_dark:styles.container}>
+        <div className={Dark?styles.container_dark:styles.container} >
             <div className={styles.divFilters}>
                 <FilterMenu/>
             </div>
