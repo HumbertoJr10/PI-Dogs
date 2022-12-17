@@ -10,7 +10,7 @@ import { Loading } from '../Loading/Loading';
 
 const DogDetail = () => {
     const { id } = useParams();
-    const dog = useSelector( state => state.dogRespaldo)
+    const Dark = useSelector( state => state.DarkMode)
     const dispatch = useDispatch()
     
     
@@ -32,8 +32,8 @@ const DogDetail = () => {
               <img className={styles.picture} src={dogDetail[0].image} alt="dog" />
           </div>
 
-          <div className={styles.StatsSide}>
-            <div className={styles.titleStats}>
+          <div className={Dark?styles.StatsSide_dark:styles.StatsSide}>
+            <div className={Dark?styles.titleStats_dark:styles.titleStats}>
               <h1>{dogDetail[0].name}</h1>
             </div>
             <div className={styles.stadistic}>
@@ -43,7 +43,7 @@ const DogDetail = () => {
             </div>
             <div className={styles.buttonSide}>
               <NavLink to={"/home"}>
-              <button className={styles.backButton}>Back</button>
+              <button className={Dark?styles.backButton_dark:styles.backButton}>Back</button>
               </NavLink>
             </div>
           </div>
@@ -53,8 +53,8 @@ const DogDetail = () => {
     }
     {
       dogDetail.length?
-        <div className={styles.rightSide}>
-          <div className={styles.titleRight}>
+        <div className={Dark?styles.rightSide_dark:styles.rightSide}>
+          <div className={Dark?styles.titleRight_dark:styles.titleRight}>
             <h2>Temperaments</h2>
           </div>
           <div className={styles.rightList}>

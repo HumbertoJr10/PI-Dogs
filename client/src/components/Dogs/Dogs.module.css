@@ -16,7 +16,7 @@
     margin: 15px;
     border-radius: 20px;
     background-color: #1B1A1F;
-    filter: drop-shadow(2px 2px 2px rgb(211, 208, 208));
+    filter: drop-shadow(5px 5px 5px rgba(116, 115, 115, 0.7));
     transition: .2s all ease-in;
     overflow: hidden;
 }

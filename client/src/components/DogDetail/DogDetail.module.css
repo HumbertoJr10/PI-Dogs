@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     position: relative;
+    transition: .2s all ease-in;
 }
 
 .container {
@@ -13,6 +14,7 @@
     width: 50%;
     font-family: robotto;
     filter: drop-shadow(5px 5px 5px rgba(116, 115, 115, 0.7));
+    transition: .2s all ease-in;
 }
 
 .rightSide {
@@ -26,7 +28,24 @@
     margin-top: 20px;
     font-family: robotto;
     filter: drop-shadow(5px 5px 5px rgba(116, 115, 115, 0.7));
+    transition: .2s all ease-in;
 }
+
+.rightSide_dark {
+    display: flex;
+    background-color: #1B1A1F;
+    color: white;
+    flex-direction: column;
+    position: relative;
+    width: 280px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-family: robotto;
+    filter: drop-shadow(5px 5px 5px rgba(116, 115, 115, 0.7));
+    transition: .2s all ease-in;
+}
+
 .BannerContainer {
     width: 100%;
     border-top-left-radius: 20px;
@@ -51,9 +70,25 @@
     top: 50%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    transition: .2s all ease-in;
 }
+
+.StatsSide_dark {
+    width: 100%;
+    height: 255px;
+    background-color: #1B1A1F;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: .2s all ease-in;
+}
+
 .stadistic {
     margin-top: 20px;
+    
 }
 
 .stadistic h2 {
@@ -63,7 +98,20 @@
 
 .titleStats {
     background-color: #1B1A1F;
-    
+}
+
+.titleStats_dark {
+    background-color: #219ebc;
+    transition: .2s all ease-in;
+}
+
+.titleStats_dark h1 {
+    margin: 0;
+    font-family: Roboto;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: .2s all ease-in;
 }
 
 .titleStats h1 {
@@ -95,7 +143,24 @@
     border: 1px solid #219ebc;
 }
 
+.backButton_dark {
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    background-color: #1B1A1F;
+    color: #219ebc;
+    filter: drop-shadow(2px 2px 2px rgb(94, 91, 91));
+    transition: .2s all ease-in;
+    border: 1px solid #219ebc;
+}
+
 .backButton:hover {
+    cursor: pointer;
+    background-color: #219ebc;
+    color: #ffff;
+}
+
+.backButton_dark:hover {
     cursor: pointer;
     background-color: #219ebc;
     color: #ffff;
@@ -107,7 +172,19 @@
     border-top-right-radius: 20px;
 }
 
+.titleRight_dark {
+    background-color: #219ebc;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
 .titleRight h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: Roboto;
+    color: white;
+} 
+.titleRight_dark h2 {
     margin-top: 5px;
     margin-bottom: 5px;
     font-family: Roboto;
@@ -128,6 +205,15 @@
 }
 
 .rightSide img {
+    width: 200px;
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.7));
+
+}
+
+.rightSide_dark img {
     width: 200px;
     position: absolute;
     bottom: 25px;
