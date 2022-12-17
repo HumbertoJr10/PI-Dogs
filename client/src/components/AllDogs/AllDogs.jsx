@@ -63,7 +63,6 @@ export default function AllDogs (props) {
                     null                 
                 }
             </div>
-            
         </div>
     )
 }
