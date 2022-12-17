@@ -3,6 +3,8 @@ import axios from 'axios'
 
 export const ADD_DOG = 'ADD_DOG'
 export const GET_DOGS = 'GET_DOGS'
+export const GET_ONE_DOG = 'GET_ONE_DOG'
+export const RESET_DETAIL = 'RESET_DETAIL'
 export const GET_TEMPERAMENT = 'GET_TEMPERAMENT'
 export const ORDER_AZ = 'ORDER_AZ'
 export const ORDER_ZA = 'ORDER_ZA'
@@ -33,6 +35,26 @@ export function filterTemperament (temperament) {
     return {
         type: FILTER_BY_TEMPERAMENT,
         payload: temperament
+    }
+}
+
+export function getOneDog (id) {
+    return async function (dispatch) {
+        return fetch(`http://localhost:3001/dogs/${id}`)
+        .then( res => res.json())
+        .then( data => {
+            dispatch({
+                type: GET_ONE_DOG,
+                payload: data
+            })
+        })
+    }
+}
+
+export function resetDetail () {
+    return {
+        type: RESET_DETAIL,
+        payload: []
     }
 }
 

@@ -20,7 +20,7 @@ function App() {
             <Route exact path='/' component={LandinPage}/>
             <Route exact path='/home' component={AllDogs} />
             <Route exact path='/new-breed' component={BreedCreator} />
-            <Route exact path='/Breed/:name' component={DogDetail}/>
+            <Route exact path='/Breed/:id' component={DogDetail}/>
           </Switch>
           <Footer/>
       </div>

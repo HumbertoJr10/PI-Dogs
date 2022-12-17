@@ -5,7 +5,8 @@ import Pagination from "../Pagination/Pagination";
 import FilterMenu from "../FiltersMenu/FiltersMenu";
 import styles from './AllDogs.module.css'
 import { useEffect } from "react";
-import { getDogs, getTemperament } from "../../redux/action/action";
+import { getDogs, getTemperament, resetDetail } from "../../redux/action/action";
+import { Loading } from "../Loading/Loading";
 
 
 
@@ -23,7 +24,10 @@ export default function AllDogs (props) {
             dispatch(getDogs())
             dispatch(getTemperament())
         }
+        dispatch(resetDetail())
     }, [])
+
+    
 
     return (
         <div className={Dark?styles.container_dark:styles.container} >
@@ -46,12 +50,9 @@ export default function AllDogs (props) {
                             image={e.image}
                             key={e.id}
                             temperament={e.temperament}
+                            id={e.id}
                         />
-                    }):
-                    <div className={styles.imgLoading}>
-                        <img className={styles.imagenPerrito} src="http://pawrider.com/assets/images/pages-loder.gif" alt="searching..." />
-                        <h1>Loading...</h1>
-                    </div>
+                    }): <Loading/>
                 }
             </div>
             <div>
@@ -61,7 +62,8 @@ export default function AllDogs (props) {
                         :
                     null                 
                 }
-            </div>     
+            </div>
+            
         </div>
     )
 }

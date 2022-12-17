@@ -1,7 +1,9 @@
 // importar actions
 import { 
     ADD_DOG, 
-    GET_DOGS, 
+    GET_DOGS,
+    GET_ONE_DOG,
+    RESET_DETAIL,
     ORDER_AZ, 
     ORDER_ZA, 
     ORDER_BY_API, 
@@ -23,6 +25,7 @@ import {
 const initialState = {
     pages: 1,
     dog: [],
+    dogDetail: [],
     temperament: [],
     dogRespaldo: [],
     userLogged: [],
@@ -47,6 +50,18 @@ const reducer = (state = initialState, { type, payload }) => {
                 dog: [...payload],
                 dogRespaldo: [...payload]
             }
+        case GET_ONE_DOG:
+            return {
+                ...state,
+                dogDetail: payload
+            }
+
+        case RESET_DETAIL:
+            return {
+                ...state,
+                dogDetail: payload
+            }
+
         case FILTER_BY_TEMPERAMENT:
             return {
                 ...state,

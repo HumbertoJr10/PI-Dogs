@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.cloud {
+    position: absolute;
+ 
+}
+
+.dog {
+    position: absolute;
+    z-index: 1;
+    width: 300px;
+    top: 90px;
+}

@@ -12,13 +12,14 @@ export default function Dogs ( {
     weightMax, 
     life_span, 
     image, 
-    temperament 
+    temperament,
+    id
 }) {
 
     const Dark = useSelector(state => state.DarkMode)
 
     return (
-        <NavLink to={`/Breed/${name}`} className={styles.link}>
+        <NavLink to={`/Breed/${id}`} className={styles.link}>
             <div className={Dark?styles.container_dark:styles.container}>
                 <div className={styles.imgSide}>
                     <img className={styles.imagen} src={image|| "http://pawrider.com/assets/images/pages-loder.gif"} alt='none' />

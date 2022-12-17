@@ -21,7 +21,7 @@ export default function Nav() {
     const searching = () => {
         const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
         if (finded.length) {
-            dispatch(reset())
+            dispatch(reset()) 
             dispatch(searchDog(SearchText))
             dispatch(changePage(1))
         } else {
@@ -46,7 +46,7 @@ export default function Nav() {
     }
 
     
-
+ 
 
     return (
         <div className={styles.container}>
