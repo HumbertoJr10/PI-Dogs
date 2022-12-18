@@ -54,11 +54,14 @@ dogsRouter.post('/', async (req, res)=> {
             return res.status(400).json('Esta Raza ya existe')
         }
         
-
         const newDog = await Dog.create({ name, heightMin, heightMax, weightMin, weightMax, life_span, image })
-        const TemperamentInDB = await Temperament.findAll({ where: {name: temperament }})
-        console.log(TemperamentInDB)
-        newDog.addTemperament(TemperamentInDB)
+        
+        const allTemper = temperament.split(', ')
+        for (let f=0; f<allTemper.length; f++) {
+            const fTemper = await Temperament.findAll({ where: {name: allTemper[f] }})
+            newDog.addTemperament(fTemper)
+        }
+        
         res.status(201).json(newDog)
     } catch (error) {
         res.status(404).json({error: error.message})

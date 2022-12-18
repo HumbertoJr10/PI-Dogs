@@ -11,10 +11,14 @@ const getDatabase =  async () => {
         }
     })
 
+    
+
+
     let mapeado = infoDatabase.map( e => {
         const { id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperaments } = e
         return {
-            id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperament: temperaments[0].name
+            id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, 
+            temperament: temperaments.map( e=> e.name).join(', ')
         }
     })
 
