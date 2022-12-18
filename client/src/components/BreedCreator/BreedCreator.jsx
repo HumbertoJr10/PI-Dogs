@@ -11,6 +11,7 @@ const BreedCreator = () => {
 
     const Dark = useSelector(state => state.DarkMode)
     const allDogs = useSelector(state => state.dogRespaldo)
+    const temperament = useSelector(state=> state.temperament)
 
     const [newDog, setNewDog] = useState({
         name: '',
@@ -34,8 +35,11 @@ const BreedCreator = () => {
     })
     const [preImage, setPreImage] = useState("https://i.pinimg.com/originals/7a/fd/bb/7afdbb03e80c341e011ca963365fae1c.gif")
 
-    const [ModalDuplicated, setModalDuplicated] = useState(false)
     const [modalState, setModalState] = useState(false)
+
+    const [tempSelected, setTempSelected] = useState([]) // Temperamentos nuevos a agregar
+    const [tempOpen, setTempOpen] = useState(false) // Verifica si el menu de agregar temperamento se abre o no
+
 
     const dispatch = useDispatch()
 
@@ -117,7 +121,32 @@ const BreedCreator = () => {
             setModalState(!modalState)
         }
     }
+    const TemperHandler = (temper)=> {
+      if (tempSelected.length>3) {
+        return alert('No puedes añadir mas temperamentos')
+      } 
 
+      if (tempSelected.includes(temper)) {
+        return alert('Ya has agregado este temperamento')
+      }
+
+      return setTempSelected([...tempSelected, temper])
+    }
+    const DeleteTemper = (temper)=> {
+        const filtrados = tempSelected.filter( e=> e!=temper)
+        setTempSelected(filtrados)
+    }
+    const finishTemper = () => {
+        setTempOpen(!tempOpen)
+        setNewDog({
+            ...newDog,
+            temperament: tempSelected.join(', ')
+        })
+        setErrors(validationErrors({
+            ...newDog,
+            temperament: tempSelected.length?tempSelected.join(', '):''
+        }, allDogs))
+    }
 //------------------------
     
 
@@ -127,6 +156,8 @@ useEffect (()=> {
         dispatch(getTemperament())
     }
 }, [])
+
+console.log(newDog)
 
   return (
     <div>
@@ -177,7 +208,36 @@ useEffect (()=> {
                             <input onChange={handleChange} type="text" className={errors.image?styles.inputWrong:styles.input} value={newDog.image} name="image" placeholder="Image Url"/>
                         </div>
                         <div className={styles.line}>
-                            <input onChange={handleChange} type="text" className={errors.temperament?styles.inputWrong:styles.input} value={newDog.temperament} name="temperament" placeholder="Temperament"/>
+                            {
+                                //<input onChange={handleChange} type="text" className={errors.temperament?styles.inputWrong:styles.input} value={newDog.temperament} name="temperament" placeholder="Temperament"/>    
+                            }
+                            <button className={styles.addTemperamentButton} onClick={()=>{setTempOpen(!tempOpen)}}>Add Temperament</button>
+
+
+                            {
+                               tempOpen? 
+                            <div className={styles.temperamentWindows}>
+                                <div className={styles.headerTemperament}>
+                                    <h2>Temperaments</h2>
+                                </div>
+                                <div className={styles.selectionTemperamentList}>
+                                    {
+                                        temperament?.map( e=> {
+                                            return <p onClick={()=> TemperHandler(e.name)} key={'temp' + e.name}>{e.name}</p>
+                                        }) 
+                                    } 
+                                </div>  
+
+                                <div className={styles.Selected}>
+                                    {
+                                        tempSelected.map( e => {
+                                            return <p onClick={()=> DeleteTemper(e)} key={'selec-' + e}>{e}</p>
+                                        })
+                                    }
+                                </div>
+                                    <button onClick={finishTemper} className={styles.buttomFinish}>Finish</button>
+                            </div>:null
+                            }
                         </div>
                     </div>
                     <div className={styles.previewSide}>
