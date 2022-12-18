@@ -208,15 +208,13 @@ console.log(newDog)
                             <input onChange={handleChange} type="text" className={errors.image?styles.inputWrong:styles.input} value={newDog.image} name="image" placeholder="Image Url"/>
                         </div>
                         <div className={styles.line}>
-                            {
-                                //<input onChange={handleChange} type="text" className={errors.temperament?styles.inputWrong:styles.input} value={newDog.temperament} name="temperament" placeholder="Temperament"/>    
-                            }
+                            
                             <button className={styles.addTemperamentButton} onClick={()=>{setTempOpen(!tempOpen)}}>Add Temperament</button>
 
 
                             {
                                tempOpen? 
-                            <div className={styles.temperamentWindows}>
+                            <div className={Dark?styles.temperamentWindows_dark:styles.temperamentWindows}>
                                 <div className={styles.headerTemperament}>
                                     <h2>Temperaments</h2>
                                 </div>
@@ -235,7 +233,7 @@ console.log(newDog)
                                         })
                                     }
                                 </div>
-                                    <button onClick={finishTemper} className={styles.buttomFinish}>Finish</button>
+                                    <button onClick={finishTemper} className={Dark?styles.buttomFinish_dark:styles.buttomFinish}>Finish</button>
                             </div>:null
                             }
                         </div>
