@@ -70,7 +70,7 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_TEMPERAMENT:
             return {
                 ...state,
-                temperament: [...payload]
+                temperament: [...payload].sort( (x,y) => x.name.localeCompare(y.name))
             }
         case SEARCH_DOG:
             return {

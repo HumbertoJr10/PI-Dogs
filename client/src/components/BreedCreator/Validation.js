@@ -64,8 +64,8 @@ export function validationErrors (form, allDogs) {
         errors.life_span = 'Must include a life span'
     }
 
-    if (form.life_span*1<1) {
-        errors.life_span = 'Life span must be minimum 1'
+    if (form.life_span*1<1 || form.life_span*1>9999) {
+        errors.life_span = 'Life span must be between 1 - 9999'
     }
 
     if (!isUrl(form.image)) {
