@@ -18,7 +18,8 @@ import {
     RESET,
     GET_TEMPERAMENT,
     FILTER_BY_TEMPERAMENT,
-    DARK_MODE
+    DARK_MODE,
+    USER_LOGIN
 } from "../action/action"
 //------------------
 
@@ -39,6 +40,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 DarkMode: payload
+            }
+        case USER_LOGIN:
+            return {
+                ...state,
+                user: [...state.user, payload]
             }
         case ADD_DOG:
             return {

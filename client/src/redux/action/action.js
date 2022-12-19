@@ -20,6 +20,7 @@ export const SEARCH_DOG = 'SEARCH_DOG'
 export const RESET = 'RESET'
 export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
 export const DARK_MODE = 'DARK_MODE'
+export const USER_LOGIN = 'USER_LOGIN'
 
 
 //------------------------------
@@ -28,6 +29,13 @@ export function darkMode (status) {
     return {
         type: DARK_MODE,
         payload: status
+    }
+}
+
+export function userLogin () {
+    return {
+        type: USER_LOGIN,
+        payload: 'login'
     }
 }
 

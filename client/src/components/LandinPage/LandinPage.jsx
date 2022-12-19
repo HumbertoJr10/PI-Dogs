@@ -1,14 +1,15 @@
 import React from "react";
 import styles from './LandinPage.module.css'
-import { Link, NavLink } from "react-router-dom";
-import groupDog from '../../asses/groupDog.png'
+import { NavLink } from "react-router-dom";
 import Switch from "../Switch/Switch";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../redux/action/action";
 
 const LandinPage = () => {
-    
+    const dispatch = useDispatch()
     
     const login = () => {
-        
+        dispatch(userLogin())
     }
 
     return (
@@ -26,7 +27,7 @@ const LandinPage = () => {
                     <input type="text" placeholder="Username" ></input>
                     <input type="text" placeholder="Password" ></input>
                     <NavLink to={"/home"}>
-                        <button className={styles.buttonLogin}>Continue</button>
+                        <button onClick={login} className={styles.buttonLogin}>Continue</button>
                     </NavLink>
                     <p>Sing up?</p>
                 </div> 
