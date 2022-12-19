@@ -1,15 +1,145 @@
-.startButton {
-    background-color: blue;
+.container {
+    position: relative;
 }
 
-.startButton:hover {
-    cursor: pointer
-}
-
-.background {
-    position: absolute;
-    background-image: url("https://images7.alphacoders.com/126/1269810.jpg");
-    background-size: 100%;
-    height: 100%;
+.imageSide {
     width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar {
+    width: 100%;
+    height: 60px;
+    background-color: #1B1A1F;
+    display: flex;
+    align-items: center;
+}
+
+.picture {
+    width: 100%;
+    height: 700px;
+}
+
+.overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+.startContainer {
+    position: absolute;
+    width: 400px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 10%;
+    left: 10%;
+    z-index: 2;
+}
+
+.startContainer h1 {
+    color: white;
+}
+
+.startContainer input {
+    margin-bottom: 15px;
+    width: 80%;
+    height: 35px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.startContainer input:focus {
+    outline: none;
+}
+
+.buttonLogin {
+    width: 100px;
+    height: 40px;
+    font-family: Roboto;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #219ebc;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.startContainer p {
+    color: white;
+}
+
+.startContainer p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.messageMain {
+    position: absolute;
+    width: 50%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.messageMain h1 {
+    color: white;
+    font-family: Roboto;
+    margin-bottom: 0;
+    font-size: 80px;
+}
+
+.messageMain p {
+    color: white;
+    font-family: Caramel;
+    margin: 0;
+    font-size: 30px;
+}
+
+.infoPage {
+    display: flex;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.leftInfo {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    margin-left: 30px;
+    position: relative;
+    left: -15px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background-color: rgba(135, 135, 139, 0.3);
+    filter: drop-shadow(2px 2px 2px rgb(87, 87, 87));
+
+}
+
+.leftInfo img {
+    width: 150px;  
+    height: 150px;
+    border-radius: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.leftText {
+    border-top: 3px solid #219ebc;
+    width: 70%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }

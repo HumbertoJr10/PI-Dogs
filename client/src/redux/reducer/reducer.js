@@ -24,6 +24,7 @@ import {
 
 const initialState = {
     pages: 1,
+    user: [],
     dog: [],
     dogDetail: [],
     temperament: [],
