@@ -4,6 +4,7 @@
     align-items: center;
     background-color: #1B1A1F;
     height: 50px;
+    position: relative;
 }
 
 .navigationDiv {
@@ -116,3 +117,45 @@
     color: #0077b6
 }
 
+.accountWindow {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    right: 5px;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #1B1A1F;
+    z-index: 1;
+}
+
+.accountWindow p {
+    color: white;
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.accountWindow p:hover {
+    color: #219ebc;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.vineta {
+    width: 20px; 
+     height: 20px;  
+     background: #1B1A1F;
+     position: absolute;
+     right: 25px;
+     top: 55px;
+     z-index: 3;
+     -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+     -ms-transform: rotate(45deg);
+     -o-transform: rotate(45deg);
+     transform: rotate(45deg);
+
+}

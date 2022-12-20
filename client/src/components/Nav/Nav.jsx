@@ -10,6 +10,7 @@ import Switch from "../Switch/Switch";
 export default function Nav() {
     const [SearchText, setSearchText] = useState('')
     const [ModalSearchFailed, setModalSearchFailed] = useState(false)
+    const [AccountOpen, setAccountOpen] = useState(false)
     let dogs = useSelector( state => state.dogRespaldo)
     const user = useSelector( state => state.userLoged)
 
@@ -19,7 +20,6 @@ export default function Nav() {
     const handdleChange = e => {
         setSearchText(e.target.value)
     }
-
     const searching = () => {
         const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
         if (finded.length) {
@@ -68,7 +68,6 @@ export default function Nav() {
                     onChange={handdleChange} 
                     type={"text"} 
                     placeholder={'Search...'}>
-                        
                     </input>
                 <button 
                     onClick={searching} 
@@ -82,8 +81,19 @@ export default function Nav() {
                 <NavLink className={styles.createButton} to={'/new-breed'}>
                     <p className={styles.text}> New breed </p>
                 </NavLink>
-                <img className={styles.profileIcon} src={user[0].profile_Picture}/>
+                <img onClick={()=> setAccountOpen(!AccountOpen)} className={styles.profileIcon} src={user[0].profile_Picture}/>
             </div>
+
+            {
+                AccountOpen?
+                <div className={styles.accountWindow}>
+                <p>My Account</p>
+                <p>Logout</p>
+            </div>:null
+            }
+            {
+                AccountOpen? <div className={styles.vineta}></div>:null
+            }
 
             <ModalWindow
             modalState={ModalSearchFailed}
