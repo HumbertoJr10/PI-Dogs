@@ -21,7 +21,8 @@ import {
     DARK_MODE,
     USER_LOGED,
     GET_ALL_USERS,
-    CREATE_USER
+    CREATE_USER,
+    USER_LOGOUT
 } from "../action/action"
 //------------------
 
@@ -52,6 +53,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 userLoged: [[...state.allUser].find(e => e.username == payload)]
+            }
+        case USER_LOGOUT:
+            return {
+                ...state,
+                userLoged: payload
             }
         case CREATE_USER:
             return {

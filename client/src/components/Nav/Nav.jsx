@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import styles from './Nav.module.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changePage, reset, searchDog } from "../../redux/action/action";
+import { changePage, reset, searchDog, userLogout } from "../../redux/action/action";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import Switch from "../Switch/Switch";
 
@@ -15,7 +15,8 @@ export default function Nav() {
     const user = useSelector( state => state.userLoged)
 
     const dispatch = useDispatch() 
-    const inputRef = React.createRef()
+    const history = useHistory()
+
 
     const handdleChange = e => {
         setSearchText(e.target.value)
@@ -31,7 +32,6 @@ export default function Nav() {
             setModalSearchFailed(!ModalSearchFailed)
         }
     }
-
     const onKeyDown = e => {
         if (e.keyCode==13) {
             const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
@@ -47,8 +47,10 @@ export default function Nav() {
         }
     }
 
-    
- 
+    const logout = () => {
+        dispatch(userLogout())
+        history.push('/')
+    }
 
     return (
         <div className={styles.container}>
@@ -62,8 +64,7 @@ export default function Nav() {
 
             <div className={styles.searchDiv}>
                 <input className={styles.searchText} 
-                    value={SearchText} 
-                    ref={inputRef} 
+                    value={SearchText}  
                     onKeyDown={onKeyDown} 
                     onChange={handdleChange} 
                     type={"text"} 
@@ -88,7 +89,7 @@ export default function Nav() {
                 AccountOpen?
                 <div className={styles.accountWindow}>
                 <p>My Account</p>
-                <p>Logout</p>
+                <p onClick={logout}>Logout</p>
             </div>:null
             }
             {

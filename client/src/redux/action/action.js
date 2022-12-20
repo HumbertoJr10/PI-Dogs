@@ -21,6 +21,7 @@ export const RESET = 'RESET'
 export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
 export const DARK_MODE = 'DARK_MODE'
 export const USER_LOGED = 'USER_LOGED'
+export const USER_LOGOUT = 'USER_LOGOUT'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
 export const CREATE_USER = 'CREATE_USER'
 
@@ -51,6 +52,13 @@ export function userLoged (username) {
     return {
         type: USER_LOGED,
         payload: username
+    }
+}
+
+export function userLogout () {
+    return {
+        type: USER_LOGOUT,
+        payload: []
     }
 }
 
