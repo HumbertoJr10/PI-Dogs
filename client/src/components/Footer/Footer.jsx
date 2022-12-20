@@ -2,8 +2,21 @@ import React from 'react'
 import styles from './Footer.module.css'
 import linkedin from '../../asses/Linkedin.png'
 import github from '../../asses/Github.png'
+import {useHistory} from 'react-router-dom'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 
 const Footer = () => {
+
+  const user = useSelector(state => state.userLoged)
+  const history = useHistory()
+
+  useEffect( ()=> {
+    if (!user.lengt) {
+        history.push('/')
+    }
+},[])
+
   return (
     <div className={styles.container}>
         <div className={styles.leftSide}>

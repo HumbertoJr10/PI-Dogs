@@ -157,8 +157,6 @@ useEffect (()=> {
     }
 }, [])
 
-console.log(newDog)
-
   return (
     <div>
         <div className={Dark?styles.container_dark:styles.container}>

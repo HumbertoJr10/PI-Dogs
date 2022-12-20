@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styles from './Nav.module.css'
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +17,7 @@ export default function Nav() {
     const dispatch = useDispatch() 
     const history = useHistory()
 
-
+    
     const handdleChange = e => {
         setSearchText(e.target.value)
     }
@@ -46,11 +46,14 @@ export default function Nav() {
             }
         }
     }
-
     const logout = () => {
         dispatch(userLogout())
         history.push('/')
     }
+
+    
+
+
 
     return (
         <div className={styles.container}>

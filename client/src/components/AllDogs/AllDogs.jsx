@@ -16,7 +16,9 @@ export default function AllDogs (props) {
     const dogs = useSelector( state => state.dog) // Estado Global
     const maxPages = Math.ceil(dogs.length / perPage) //Cantidad de Paginas Totales
     const dispatch = useDispatch()
+    
 
+    
     const Dark = useSelector(state => state.DarkMode)
 
     useEffect (()=> {
@@ -27,7 +29,7 @@ export default function AllDogs (props) {
         dispatch(resetDetail())
     }, [])
 
-    
+
 
     return (
         <div className={Dark?styles.container_dark:styles.container} >
