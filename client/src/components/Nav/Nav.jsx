@@ -11,6 +11,8 @@ export default function Nav() {
     const [SearchText, setSearchText] = useState('')
     const [ModalSearchFailed, setModalSearchFailed] = useState(false)
     let dogs = useSelector( state => state.dogRespaldo)
+    const user = useSelector( state => state.userLoged)
+
     const dispatch = useDispatch() 
     const inputRef = React.createRef()
 
@@ -80,7 +82,7 @@ export default function Nav() {
                 <NavLink className={styles.createButton} to={'/new-breed'}>
                     <p className={styles.text}> New breed </p>
                 </NavLink>
-                <img className={styles.profileIcon} src="https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg"/>
+                <img className={styles.profileIcon} src={user[0].profile_Picture}/>
             </div>
 
             <ModalWindow

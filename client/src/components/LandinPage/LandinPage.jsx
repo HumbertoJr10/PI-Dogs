@@ -31,8 +31,6 @@ const LandinPage = () => {
     const [loginOpen, setLoginOpen] = useState(true)
     const [modalRegisterSucces, setModalRegisterSucces] = useState(false)
 
-
-    
     function handleChangeLogin(e) {
         setInputLogin({
             ...inputLogin,
@@ -44,7 +42,6 @@ const LandinPage = () => {
             [e.target.name]: e.target.value
         }, allUser))
     }
-
     function handleChangeRegister(e) {
         setInputRegister({
             ...inputRegister,
@@ -55,7 +52,6 @@ const LandinPage = () => {
             [e.target.name]: e.target.value 
         }, allUser))
     }
-
     function login () {
         const user = allUser.find( e=> e.username===inputLogin.username && e.password === inputLogin.password)
 
@@ -66,7 +62,6 @@ const LandinPage = () => {
             alert('Datos incorrectos')
         }
     }
-
     function register() {
         if (Object.values(errorRegister).length) {
             alert('must fix errors!')
@@ -81,7 +76,16 @@ const LandinPage = () => {
             setLoginOpen(true)
         }
     }
-    
+    function onKeyLogin(e) {
+        if (e.keyCode==13)  {
+            login()
+        }
+    }
+    function onKeyRegister(e) {
+        if (e.keyCode==13) {
+            register()
+        }
+    }
 
     return (
     <div className={styles.body}>
@@ -95,8 +99,8 @@ const LandinPage = () => {
                             loginOpen?           
                         <div className={modalRegisterSucces?styles.startContainer_close:styles.startContainer}>
                             <h1>Login</h1>
-                            <input onChange={handleChangeLogin} value={inputLogin.username} type="text" name="username" placeholder="Username" ></input>
-                            <input onChange={handleChangeLogin} value={inputLogin.password} type="password" name="password" placeholder="Password" ></input>
+                            <input onKeyDown={onKeyLogin} onChange={handleChangeLogin} value={inputLogin.username} type="text" name="username" placeholder="Username" ></input>
+                            <input onKeyDown={onKeyLogin} onChange={handleChangeLogin} value={inputLogin.password} type="password" name="password" placeholder="Password" ></input>
                             <button onClick={login} className={styles.buttonLogin}>Continue</button>
                             <p onClick={()=> setLoginOpen(!loginOpen)}>Sing up?</p>
                             <div className={styles.containerError}>
@@ -108,9 +112,9 @@ const LandinPage = () => {
                         :
                         <div className={styles.startContainer}>
                             <h1>Sing Up</h1>
-                            <input onChange={handleChangeRegister} name="username" value={inputRegister.username} type="text" placeholder="Username"></input>
-                            <input onChange={handleChangeRegister} name="email" value={inputRegister.email} type="text" placeholder="Email"></input>
-                            <input onChange={handleChangeRegister} name="password" value={inputRegister.password} type="password" placeholder="Password"></input>
+                            <input onKeyDown={onKeyRegister} onChange={handleChangeRegister} name="username" value={inputRegister.username} type="text" placeholder="Username"></input>
+                            <input onKeyDown={onKeyRegister} onChange={handleChangeRegister} name="email" value={inputRegister.email} type="text" placeholder="Email"></input>
+                            <input onKeyDown={onKeyRegister} onChange={handleChangeRegister} name="password" value={inputRegister.password} type="password" placeholder="Password"></input>
                             <button onClick={register} className={styles.buttonLogin}>Register</button>
                             <p onClick={()=> setLoginOpen(!loginOpen)}>Already have an account? login</p>
                             <div className={styles.containerError}>

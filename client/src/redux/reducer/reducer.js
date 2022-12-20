@@ -33,7 +33,6 @@ const initialState = {
     dogDetail: [],
     temperament: [],
     dogRespaldo: [],
-    userLogged: [],
     DarkMode: false
 }
 

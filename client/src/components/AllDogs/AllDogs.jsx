@@ -18,7 +18,6 @@ export default function AllDogs (props) {
     const dispatch = useDispatch()
 
     const Dark = useSelector(state => state.DarkMode)
-    const userLoged = useSelector(state => state.userLoged)
 
     useEffect (()=> {
         if (!dogs.length) {
@@ -28,14 +27,13 @@ export default function AllDogs (props) {
         dispatch(resetDetail())
     }, [])
 
-    console.log(userLoged)    
+    
 
     return (
         <div className={Dark?styles.container_dark:styles.container} >
             <div className={styles.divFilters}>
                 <FilterMenu/>
             </div>
-            <h1>Bienvenido {userLoged[0]?.username}</h1>
             <div className={styles.AllDogsDiv}> 
                 {
                     dogs.length?dogs.slice(
