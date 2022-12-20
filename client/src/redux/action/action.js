@@ -20,7 +20,9 @@ export const SEARCH_DOG = 'SEARCH_DOG'
 export const RESET = 'RESET'
 export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
 export const DARK_MODE = 'DARK_MODE'
-export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGED = 'USER_LOGED'
+export const GET_ALL_USERS = 'GET_ALL_USERS'
+export const CREATE_USER = 'CREATE_USER'
 
 
 //------------------------------
@@ -32,10 +34,36 @@ export function darkMode (status) {
     }
 }
 
-export function userLogin () {
+export function createUser(user) {
+    return async function (dispatch) {
+        const data = axios.post('http://localhost:3001/user', user)
+        .then( res => {
+            console.log([res.data])
+            dispatch ({
+                type: CREATE_USER,
+                payload: [res.data]
+            })
+        })
+    }
+}
+
+export function userLoged (username) {
     return {
-        type: USER_LOGIN,
-        payload: 'login'
+        type: USER_LOGED,
+        payload: username
+    }
+}
+
+export function getAllUsers () {
+    return async function (dispatch) {
+        return fetch('http://localhost:3001/user')
+        .then( res => res.json())
+        .then( data => {
+            dispatch({
+                type: GET_ALL_USERS,
+                payload: data
+            })
+        })
     }
 }
 
@@ -69,7 +97,6 @@ export function resetDetail () {
 export function addDog (dog) {
     return async function (dispatch) {
         const response = axios.post('http://localhost:3001/dogs', dog);
-        console.log(response);
         return response;
     }
 }

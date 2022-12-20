@@ -6,21 +6,28 @@ import LandinPage from './components/LandinPage/LandinPage';
 import BreedCreator from './components/BreedCreator/BreedCreator';
 import Footer from './components/Footer/Footer';
 import DogDetail from './components/DogDetail/DogDetail';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {getAllUsers} from './redux/action/action'
 
 
 // https://pngimage.net/wp-content/uploads/2018/05/cachorro-feliz-png-2.png
 
 function App() {
+  const userLoged = useSelector(state => state.userLoged)
+  const dispatch = useDispatch()
 
-  const user = useSelector(state => state.user)
+
+  useEffect( ()=> {
+    dispatch(getAllUsers())
+  }, [] )
+
 
   return (
     <BrowserRouter>
       <div className="App">
         {
-          user.length? <Nav/>:null
+          userLoged.length? <Nav/>:null
         }
           <Switch>
             <Route exact path='/' component={LandinPage}/>

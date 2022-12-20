@@ -19,13 +19,16 @@ import {
     GET_TEMPERAMENT,
     FILTER_BY_TEMPERAMENT,
     DARK_MODE,
-    USER_LOGIN
+    USER_LOGED,
+    GET_ALL_USERS,
+    CREATE_USER
 } from "../action/action"
 //------------------
 
 const initialState = {
     pages: 1,
-    user: [],
+    userLoged: [],
+    allUser: [],
     dog: [],
     dogDetail: [],
     temperament: [],
@@ -41,10 +44,20 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 DarkMode: payload
             }
-        case USER_LOGIN:
+        case GET_ALL_USERS:
             return {
                 ...state,
-                user: [...state.user, payload]
+                allUser: [...payload]
+            }
+        case USER_LOGED: 
+            return {
+                ...state,
+                userLoged: [[...state.allUser].find(e => e.username == payload)]
+            }
+        case CREATE_USER:
+            return {
+                ...state,
+                allUser: [...state.allUser, ...payload],
             }
         case ADD_DOG:
             return {
@@ -62,13 +75,11 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 dogDetail: payload
             }
-
         case RESET_DETAIL:
             return {
                 ...state,
                 dogDetail: payload
             }
-
         case FILTER_BY_TEMPERAMENT:
             return {
                 ...state,
