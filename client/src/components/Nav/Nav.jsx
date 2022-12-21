@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import styles from './Nav.module.css'
 import { NavLink, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,9 +48,12 @@ export default function Nav() {
     }
     const logout = () => {
         dispatch(userLogout())
+        setAccountOpen(!AccountOpen)
         history.push('/')
     }
-
+    const accountSelection = () => {
+        setAccountOpen(!AccountOpen)
+    }
     
 
 
@@ -72,12 +75,12 @@ export default function Nav() {
                     onChange={handdleChange} 
                     type={"text"} 
                     placeholder={'Search...'}>
-                    </input>
+                </input>
                 <button 
                     onClick={searching} 
                     className={styles.searchButton}>
                     <img className={styles.imgSearch} src="https://cdn.icon-icons.com/icons2/1659/PNG/512/3844432-magnifier-search-zoom_110300.png"/>
-                    </button>
+                </button>
             </div>
 
             <div className={styles.accountActions}>
@@ -91,7 +94,9 @@ export default function Nav() {
             {
                 AccountOpen?
                 <div className={styles.accountWindow}>
-                <p>My Account</p>
+                    <NavLink to={`/account/${user[0].username}`}>
+                        <p onClick={accountSelection}>My Account</p>
+                    </NavLink>
                 <p onClick={logout}>Logout</p>
             </div>:null
             }

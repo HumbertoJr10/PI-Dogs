@@ -40,7 +40,7 @@ const BreedCreator = () => {
     const [tempSelected, setTempSelected] = useState([]) // Temperamentos nuevos a agregar
     const [tempOpen, setTempOpen] = useState(false) // Verifica si el menu de agregar temperamento se abre o no
 
-
+    const user = useSelector(state => state.userLoged)
     const dispatch = useDispatch()
 
 //---- Handlers ----------
@@ -93,7 +93,8 @@ const BreedCreator = () => {
         } else {
             dispatch(addDog({
                 ...newDog,
-                life_span: newDog.life_span + ' years'
+                life_span: newDog.life_span + ' years',
+                userID: user[0].id
             }))
             dispatch(getDogs())
     

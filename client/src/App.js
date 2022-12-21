@@ -1,15 +1,16 @@
 import './App.css';
 import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {getAllUsers} from './redux/action/action'
+
 import Nav from './components/Nav/Nav';
 import AllDogs from './components/AllDogs/AllDogs';
 import LandinPage from './components/LandinPage/LandinPage';
 import BreedCreator from './components/BreedCreator/BreedCreator';
 import Footer from './components/Footer/Footer';
 import DogDetail from './components/DogDetail/DogDetail';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {getAllUsers} from './redux/action/action'
-
+import Account from './components/Account/Account';
 
 // https://pngimage.net/wp-content/uploads/2018/05/cachorro-feliz-png-2.png
 
@@ -34,6 +35,7 @@ function App() {
             <Route exact path='/home' component={AllDogs} />
             <Route exact path='/new-breed' component={BreedCreator} />
             <Route exact path='/Breed/:id' component={DogDetail}/>
+            <Route exact path='/account/:username' component={Account}/>
           </Switch>
          <Footer/>
       </div>
