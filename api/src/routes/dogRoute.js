@@ -2,11 +2,19 @@ const { Router } = require('express');
 const getAllDog = require('../controller/getAllDog')
 const getApiInfo = require('../controller/getApi')
 const getDatabase = require('../controller/getDatabase')
-const { Dog, Temperament } = require('../db')
+const { Dog, Temperament, User } = require('../db')
 
 
 const dogsRouter = Router();
 
+dogsRouter.get('/database', async(req, res) => {
+    try {
+        const allDog = await getDatabase()
+        res.status(200).json(allDog)
+    } catch (error) {
+        res.status(404).json(error.message)
+    }
+})
 
 dogsRouter.get('/', async (req,res)=> {
     try {
@@ -33,7 +41,9 @@ dogsRouter.get('/', async (req,res)=> {
 
 dogsRouter.post('/', async (req, res)=> {
     try {
-        const { name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperament } = req.body
+        const { name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperament, userID } = req.body
+
+
         if (!name || 
             !heightMin || 
             !heightMax || 
@@ -41,7 +51,7 @@ dogsRouter.post('/', async (req, res)=> {
             !weightMax || 
             !life_span || 
             !image || 
-            !temperament ){ 
+            !temperament || !userID ){ 
             return res.status(400).json('Faltan Parametros')}
         
         const verification = await Dog.findAll({
@@ -62,6 +72,8 @@ dogsRouter.post('/', async (req, res)=> {
             newDog.addTemperament(fTemper)
         }
         
+        newDog.setUser(userID)
+
         res.status(201).json(newDog)
     } catch (error) {
         res.status(404).json({error: error.message})

@@ -15,9 +15,9 @@ const getDatabase =  async () => {
 
 
     let mapeado = infoDatabase.map( e => {
-        const { id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperaments } = e
+        const { id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, temperaments, userId } = e
         return {
-            id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, 
+            id, name, heightMin, heightMax, weightMin, weightMax, life_span, image, userId, 
             temperament: temperaments.map( e=> e.name).join(', ')
         }
     })
