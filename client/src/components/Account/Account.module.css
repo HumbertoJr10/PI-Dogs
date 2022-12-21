@@ -10,6 +10,18 @@
     margin-top: 25px;
     padding: 25px;
     border-radius: 15px;
+    transition: all .2s ease-in;
+}
+
+.container_dark {
+    width: 60%;
+    background-color: #1B1A1F;
+    color: white;
+    display: flex;
+    margin-top: 25px;
+    padding: 25px;
+    border-radius: 15px;
+    transition: all .2s ease-in;
 }
 
 .pictureSide {
@@ -21,6 +33,7 @@
 .pictureSide h2 {
     color: rgb(49, 48, 48);
     margin: 0;
+    margin-top: 20px;
     background-color: #219ebc;
     border-radius: 10px;
     color: white;
@@ -37,4 +50,63 @@
     display: flex;
     flex-direction: column;
     align-content: flex-start;
+    border-left: 2px solid #219ebc;
+    margin-left: 20px;
+}
+.titleBreed {
+    margin: 0;
+}
+
+.pictureSide p {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+.DogsContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 350px;
+    overflow: auto;
+}
+
+.DogsContainer::-webkit-scrollbar {
+    width: 7px;
+}
+
+.DogsContainer::-webkit-scrollbar-thumb {
+    background-color: #219ebc;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.dogbreed {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    margin-top: 20px;
+    background-color: red;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.dogPic {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.DogName {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    margin: 0;
+    padding: 5px 0;
+    z-index: 5;
+    color: white;
+    font-size: 20px;
+    background-color: #219ebc;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

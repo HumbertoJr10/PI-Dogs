@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from './DogDetail.module.css'
 import { NavLink, useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { resetDetail, getOneDog, getDogs } from '../../redux/action/action';
+import { getOneDog } from '../../redux/action/action';
 import { Loading } from '../Loading/Loading';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import { deleteDog } from '../../redux/action/action';
