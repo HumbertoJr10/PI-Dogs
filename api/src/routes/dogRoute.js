@@ -7,12 +7,35 @@ const { Dog, Temperament, User } = require('../db')
 
 const dogsRouter = Router();
 
-dogsRouter.get('/database', async(req, res) => {
+dogsRouter.get('/database', async(req, res) => { // PRUEBA
     try {
         const allDog = await getDatabase()
         res.status(200).json(allDog)
     } catch (error) {
         res.status(404).json(error.message)
+    }
+})
+
+dogsRouter.delete('/:id', async (req,res)=> {
+    try {
+        const {id} = req.params
+
+        if(id.length<36) {
+            return res.status(404).json({err: 'Id invalido'})
+        }
+        
+
+        const deleted = Dog.findByPk(id)
+        if(!deleted) {
+            return res.status(404).json({error: 'No existe la raza a eliminar'})
+        } else {   
+            await Dog.destroy({ where: {
+                id
+            }})        
+            res.status(200).json(deleted)
+        }
+    } catch (error) {
+        res.status(404).json({err: error.message})
     }
 })
 
@@ -96,6 +119,7 @@ dogsRouter.get('/:id', async (req, res) => {
         res.status(404).json({error: error.message})
     }
 })
+
 
 
 

@@ -1,24 +1,33 @@
-import React, { useEffect, useLayoutEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from './DogDetail.module.css'
-import { NavLink, useParams } from 'react-router-dom'
+import { NavLink, useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { resetDetail, getOneDog, getDogs } from '../../redux/action/action';
-import cloud from '../../asses/cloud.png'
 import { Loading } from '../Loading/Loading';
-
+import ModalWindow from '../ModalWindow/ModalWindow';
+import { deleteDog } from '../../redux/action/action';
 
 
 const DogDetail = () => {
     const { id } = useParams();
     const Dark = useSelector( state => state.DarkMode)
     const dispatch = useDispatch()
-    
-    
-    useEffect( ()=> {
-      dispatch(getOneDog(id))
-    }, [])
-    
+    const history = useHistory()
     const dogDetail = useSelector( state => state.dogDetail)
+    const [deleteOpen, setDeleteOpen] = useState(false)
+    
+
+    useEffect(  ()=> {
+       dispatch(getOneDog(id))
+    }, [])
+    console.log(id)
+
+
+    const Remove = () => {
+      dispatch(deleteDog(id))
+      setDeleteOpen(!deleteOpen)
+      history.push('/home')
+    }
 
 
   return (
@@ -30,12 +39,26 @@ const DogDetail = () => {
 
           <div className={styles.BannerContainer}>
               <img className={styles.picture} src={dogDetail[0].image} alt="dog" />
+              {
+                dogDetail[0].created_by?
+                  <img onClick={()=> setDeleteOpen(!deleteOpen)} className={styles.delete} src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="delete"/>
+                :null
+              }
+              
           </div>
 
           <div className={Dark?styles.StatsSide_dark:styles.StatsSide}>
             <div className={Dark?styles.titleStats_dark:styles.titleStats}>
               <h1>{dogDetail[0].name}</h1>
             </div>
+            {
+              dogDetail[0].created_by?
+              <div>
+                <p className={styles.creator}> Created by {dogDetail[0].created_by} </p>
+              </div>:null
+            }
+           
+
             <div className={styles.stadistic}>
               <h2>Height: {dogDetail[0].heightMin} - {dogDetail[0].heightMax} cm</h2>
               <h2>Weight: {dogDetail[0].weightMin} - {dogDetail[0].weightMax} kg</h2>
@@ -67,7 +90,14 @@ const DogDetail = () => {
           <img src="https://www.pngfind.com/pngs/b/84-842521_cute-dog-png.png" alt='doge' />
         </div>:null
     }
-  
+    <ModalWindow
+    modalState={deleteOpen}
+    setModalState={setDeleteOpen}
+    >
+      <img className={styles.sadDog} src='https://assets.stickpng.com/images/580b57fbd9996e24bc43bbdd.png' alt="sadDog"/>
+      <h1>Are you sure?</h1>
+      <button onClick={Remove} className={styles.backButton}> Delete</button>
+    </ModalWindow>
   </div>
 )
 }

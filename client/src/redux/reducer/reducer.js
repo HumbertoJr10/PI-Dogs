@@ -22,7 +22,8 @@ import {
     USER_LOGED,
     GET_ALL_USERS,
     CREATE_USER,
-    USER_LOGOUT
+    USER_LOGOUT,
+    DELETE_BREED
 } from "../action/action"
 //------------------
 
@@ -68,6 +69,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 character: [...state.character, payload]
+            }
+        case DELETE_BREED:
+            return {
+                ...state,
+                dog: [...state.dog].filter(e=> e.id!=payload)
             }
         case GET_DOGS:
             return {

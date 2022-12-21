@@ -24,6 +24,7 @@ export const USER_LOGED = 'USER_LOGED'
 export const USER_LOGOUT = 'USER_LOGOUT'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
 export const CREATE_USER = 'CREATE_USER'
+export const DELETE_BREED = 'DELETE_BREED'
 
 
 //------------------------------
@@ -105,7 +106,18 @@ export function resetDetail () {
 export function addDog (dog) {
     return async function (dispatch) {
         const response = axios.post('http://localhost:3001/dogs', dog);
-        return response;
+        return response
+    }
+}
+
+export function deleteDog(id) {
+
+    return async function (dispatch) {
+        const response = await axios.delete(`http://localhost:3001/dogs/${id}`)
+        dispatch({
+            type: DELETE_BREED,
+            payload: id
+        })
     }
 }
 

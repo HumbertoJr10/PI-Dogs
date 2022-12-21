@@ -177,3 +177,26 @@
 .link {
     text-decoration: none;
 }
+
+.creator {
+    color: #1B1A1F;
+    position: absolute;
+    top: 160px;
+    right: 10px;
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.creator_dark {
+    color: white;
+    position: absolute;
+    top: 160px;
+    right: 10px;
+    background-color: #1B1A1F;
+    padding: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -13,7 +13,8 @@ export default function Dogs ( {
     life_span, 
     image, 
     temperament,
-    id
+    id,
+    created_by
 }) {
 
     const Dark = useSelector(state => state.DarkMode)
@@ -33,6 +34,10 @@ export default function Dogs ( {
                 </div>
                 <div className={Dark?styles.NameSide_dark:styles.NameSide}>
                     <h2 className={Dark?styles.CardName_dark:styles.CardName}> {name || "404 ERROR"} </h2>
+                    {
+                        created_by?
+                            <p className={Dark?styles.creator_dark:styles.creator}>{created_by}</p> : null
+                    }
                 </div>
                 
                 <div className={Dark?styles.FooterSide_dark:styles.FooterSide}>

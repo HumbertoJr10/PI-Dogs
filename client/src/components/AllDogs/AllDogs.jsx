@@ -10,7 +10,7 @@ import { Loading } from "../Loading/Loading";
 
 
 
-export default function AllDogs (props) {
+export default function AllDogs () {
     const pages = useSelector(state => state.pages) // pagina en la que nos encontramos ESTADO GLOBAL
     const [perPage, setPerPage] = useState(6) // Cantidad de elementos a mostrar en cada pagina
     const dogs = useSelector( state => state.dog) // Estado Global
@@ -53,6 +53,7 @@ export default function AllDogs (props) {
                             key={e.id}
                             temperament={e.temperament}
                             id={e.id}
+                            created_by={e.created_by}
                         />
                     }): <Loading/>
                 }

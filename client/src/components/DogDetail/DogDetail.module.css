@@ -54,6 +54,7 @@
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     overflow: hidden;
+    position: relative
 }
 .picture {
     width: 100%;
@@ -223,4 +224,38 @@
     left: 25px;
     filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.7));
 
+}
+
+.creator {
+    position: absolute;
+    top: -50px;
+    right: 10px;
+    color: white;
+    background-color: #1B1A1F;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.creator:hover {
+    color: #219ebc;
+}
+
+.delete {
+    width: 40px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 7;
+    opacity: .5;
+    transition: all .2s ease-in;
+    cursor: pointer;
+}
+
+.delete:hover {
+    opacity: 1;
+}
+
+.sadDog {
+    width: 150px;
 }
