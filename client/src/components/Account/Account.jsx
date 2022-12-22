@@ -1,23 +1,47 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Dogs from '../Dogs/Dogs'
+import ModalWindow from '../ModalWindow/ModalWindow'
 import styles from './Account.module.css'
+import { isUrl } from '../BreedCreator/Validation'
+import { changeProfilePic } from '../../redux/action/action'
 
 const Account = () => {
 
     const user = useSelector(state => state.userLoged)
     const Dark = useSelector(state => state.DarkMode)
-    const Alldog = useSelector(state=> state.dog) 
+    const Alldog = useSelector(state=> state.dog)
+    const [changePicOpen, setChangePicOpen] = useState(false)
+    const [newPic, setNewPic] = useState("https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg")
 
     const userDogs = Alldog.filter( e=> e.created_by ==user[0]?.username)
+    const dispatch = useDispatch()
 
-    console.log(userDogs)
+    const handleChange = (e) => {
+        if (isUrl(e.target.value)) {
+            setNewPic(e.target.value)
+        } else {
+            setNewPic("https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg")
+        }
+    }
+
+    const ChangePicHandler = () => {
+        if (!isUrl(newPic)) {
+            return alert('URL INVALID')
+        } 
+
+        dispatch(changeProfilePic(user[0].id, {profile_Picture: newPic}))
+        setNewPic('https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg')
+        setChangePicOpen(!changePicOpen)
+    }
+
+
   return (
     <div className={styles.body}>
         <div className={Dark?styles.container_dark:styles.container}> 
             <div className={styles.pictureSide}>
-                <img className={styles.profilePic} src={user[0]?.profile_Picture} alt='ProfilePic'/>
+                <img onClick={()=> setChangePicOpen(!changePicOpen)} className={styles.profilePic} src={user[0]?.profile_Picture} alt='ProfilePic'/>
                 <h2>{user[0]?.username}</h2>
                 <p>{user[0]?.email}</p>
                 <p>Register: {user[0]?.register}</p>
@@ -40,6 +64,18 @@ const Account = () => {
                 </div>
             </div>
         </div>
+        <ModalWindow
+        modalState={changePicOpen}
+        setModalState={setChangePicOpen}
+        header={false}
+        >
+            <div className={styles.containerChangePic}>
+                <h2>Change your Profile Picture</h2>
+                <img className={styles.profilePicChange} name="newProfilePic" src={newPic} alt='ProfilePic'/>
+                <input onChange={handleChange} className={styles.inputPicChange} type="text" placeholder='Enter picture URL...' />
+                <button onClick={ChangePicHandler} className={styles.buttonSavePic}>Save</button>
+            </div>
+        </ModalWindow>
     </div>
   )
 }

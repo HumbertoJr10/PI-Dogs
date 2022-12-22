@@ -23,7 +23,8 @@ import {
     GET_ALL_USERS,
     CREATE_USER,
     USER_LOGOUT,
-    DELETE_BREED
+    DELETE_BREED,
+    CHANGE_PROFILE_PIC
 } from "../action/action"
 //------------------
 
@@ -138,6 +139,11 @@ const reducer = (state = initialState, { type, payload }) => {
                         return e
                     }
                 } )
+            }
+        case CHANGE_PROFILE_PIC:
+            return {
+                ...state,
+                userLoged: [payload]
             }
         case CHANGE_PAGE:
             return {

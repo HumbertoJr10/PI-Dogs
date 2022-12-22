@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { User } = require('../db')
-const getUser = require('../controller/getAllUsers')
+const {getUser, getOneUser} = require('../controller/getAllUsers')
 
 const userRouter = Router();
 
@@ -13,6 +13,29 @@ userRouter.get('/', async (req, res) => {
     }
 })
 
+userRouter.put('/:id', async (req, res)=> {
+    try {
+        const {profile_Picture} = req.body
+        const {id} = req.params
+
+        if (!profile_Picture) {
+            res.status(404).json('Profile Pic is Needed')
+        }
+
+        const myUser = await getOneUser(id)
+
+        if (!myUser) {
+            res.status(404).json('User does not exist')
+        }
+
+        myUser.profile_Picture = profile_Picture
+        await myUser.save()
+        
+    res.status(200).json(myUser)
+    } catch (error) {
+        res.status(400).json({err: error.message})
+    }
+})
 
 userRouter.post('/', async (req,res) => {
     try {

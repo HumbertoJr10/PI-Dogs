@@ -25,6 +25,7 @@ export const USER_LOGOUT = 'USER_LOGOUT'
 export const GET_ALL_USERS = 'GET_ALL_USERS'
 export const CREATE_USER = 'CREATE_USER'
 export const DELETE_BREED = 'DELETE_BREED'
+export const CHANGE_PROFILE_PIC = 'CHANGE_PROFILE_PIC'
 
 
 //------------------------------
@@ -40,7 +41,6 @@ export function createUser(user) {
     return async function (dispatch) {
         const data = axios.post('http://localhost:3001/user', user)
         .then( res => {
-            console.log([res.data])
             dispatch ({
                 type: CREATE_USER,
                 payload: [res.data]
@@ -181,7 +181,18 @@ export function orderByAll () {
     }
 }
 
-
+export function changeProfilePic(id, profile_Picture) {
+    return async function (dispatch) {
+        const modify = axios.put(`http://localhost:3001/user/${id}`, profile_Picture)
+            .then( res => {
+                const {data} = res
+                dispatch({
+                    type: CHANGE_PROFILE_PIC,
+                    payload: data
+                })
+            })
+    }
+}
 
 export function orderByApi () {
     return {

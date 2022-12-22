@@ -22,7 +22,7 @@ module.exports = (sequelize)=> {
             allowNull: false
         },
         profile_Picture: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             defaultValue: 'https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg'
         },

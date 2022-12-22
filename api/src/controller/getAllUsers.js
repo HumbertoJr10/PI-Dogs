@@ -5,4 +5,13 @@ const getUser = async () => {
     return allUsers
 }
 
-module.exports = getUser
+const getOneUser = async (id) => {
+    const user = await User.findOne({
+        where: {
+            id: id
+        }
+    })
+    return user
+}
+
+module.exports = {getUser, getOneUser}

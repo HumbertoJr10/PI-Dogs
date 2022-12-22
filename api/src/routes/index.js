@@ -12,3 +12,4 @@ router.use('/dogs', dogsRouter)
 router.use('/temperaments', temperamentsRouter)
 
 module.exports = router;
+
