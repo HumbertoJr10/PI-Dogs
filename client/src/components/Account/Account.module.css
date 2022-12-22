@@ -28,6 +28,7 @@
     display: flex;
     flex-direction: column;
     width: 30%;
+    position: relative;
 }
 
 .pictureSide h2 {
@@ -45,6 +46,54 @@
     cursor: pointer;
     border-radius: 100%;
 }
+
+.overlay {
+    width: 240px;
+    height: 240px;
+    border-radius: 100%;
+    position: absolute;
+    transition: all .2s ease-in;
+    cursor: pointer;
+
+}
+
+.editicon {
+    width: 50px;
+    margin: auto;
+    position: absolute;
+    top: 90px;
+    left: 90px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.overlay:hover {
+    width: 240px;
+    height: 240px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.274);
+    position: absolute;
+    transition: all .2s ease-in;
+}
+
+.overlay:hover ~ .editicon {
+    opacity: 1;
+}
+
+.editicon:hover {
+    opacity: 1;
+}
+
+.editicon:hover ~ .overlay {
+    width: 240px;
+    height: 240px;
+    border-radius: 100%;
+    background-color: rgba(255, 255, 255, 0.274);
+    position: absolute;
+    transition: all .2s ease-in;
+}
+
+
 
 .infoUser {
     width: 70%;
