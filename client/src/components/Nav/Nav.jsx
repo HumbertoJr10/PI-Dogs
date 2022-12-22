@@ -94,7 +94,7 @@ export default function Nav() {
             {
                 AccountOpen?
                 <div className={styles.accountWindow}>
-                    <NavLink to={`/account/${user[0].username}`}>
+                    <NavLink className={styles.navAccount} to={`/account/${user[0].username}`}>
                         <p onClick={accountSelection}>My Account</p>
                     </NavLink>
                 <p onClick={logout}>Logout</p>

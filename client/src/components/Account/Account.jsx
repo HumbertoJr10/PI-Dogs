@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Dogs from '../Dogs/Dogs'
@@ -6,12 +6,13 @@ import ModalWindow from '../ModalWindow/ModalWindow'
 import styles from './Account.module.css'
 import { isUrl } from '../BreedCreator/Validation'
 import { changeProfilePic } from '../../redux/action/action'
+import { resetDetail } from '../../redux/action/action'
 
 const Account = () => {
 
     const user = useSelector(state => state.userLoged)
     const Dark = useSelector(state => state.DarkMode)
-    const Alldog = useSelector(state=> state.dog)
+    const Alldog = useSelector(state=> state.dogRespaldo)
     const [changePicOpen, setChangePicOpen] = useState(false)
     const [newPic, setNewPic] = useState("https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg")
 
@@ -35,6 +36,10 @@ const Account = () => {
         setNewPic('https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg')
         setChangePicOpen(!changePicOpen)
     }
+
+    useEffect( ()=> {
+        dispatch(resetDetail())
+    })
 
 
   return (

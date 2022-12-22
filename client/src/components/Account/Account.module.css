@@ -87,9 +87,9 @@
     height: 150px;
     position: relative;
     margin-top: 20px;
-    background-color: red;
     border-radius: 20px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .dogPic {

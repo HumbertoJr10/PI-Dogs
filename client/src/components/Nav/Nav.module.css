@@ -22,7 +22,7 @@
     
 }
 .navButton {
-    color: #939699;
+    color: white;
     margin-left: 15px;
     text-decoration: none;
     margin-right: 15px;
@@ -30,7 +30,7 @@
 
 .navButton:hover {
     cursor: pointer;
-    color: white;
+    color: #0077b6;
 }
 
 .createButton {
@@ -129,6 +129,7 @@
     border-radius: 10px;
     background-color: #1B1A1F;
     z-index: 1;
+    text-decoration: none;
 }
 
 .accountWindow p {
@@ -136,6 +137,10 @@
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.navAccount {
+    text-decoration: none;
 }
 
 .accountWindow p:hover {
