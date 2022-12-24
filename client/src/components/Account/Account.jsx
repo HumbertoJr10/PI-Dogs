@@ -48,7 +48,7 @@ const Account = () => {
             <div className={styles.pictureSide}>
                 <div onClick={()=> setChangePicOpen(!changePicOpen)} className={styles.overlay}>
                 </div>
-                    <img className={styles.editicon} src='https://www.freeiconspng.com/uploads/edit-new-icon-22.png' alt='edit'/>
+                    <img onClick={()=> setChangePicOpen(!changePicOpen)} className={styles.editicon} src='https://www.freeiconspng.com/uploads/edit-new-icon-22.png' alt='edit'/>
                 <img className={styles.profilePic} src={user[0]?.profile_Picture} alt='ProfilePic'/>
                 <h2>{user[0]?.username}</h2>
                 <p>{user[0]?.email}</p>

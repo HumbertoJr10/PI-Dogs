@@ -14,6 +14,7 @@ const DogDetail = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const dogDetail = useSelector( state => state.dogDetail)
+    const userLoged = useSelector( state => state.userLoged)
     const [deleteOpen, setDeleteOpen] = useState(false)
     
 
@@ -40,7 +41,7 @@ const DogDetail = () => {
           <div className={styles.BannerContainer}>
               <img className={styles.picture} src={dogDetail[0].image} alt="dog" />
               {
-                dogDetail[0].created_by?
+                dogDetail[0].created_by&&dogDetail[0].created_by==userLoged[0].username?
                   <img onClick={()=> setDeleteOpen(!deleteOpen)} className={styles.delete} src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="delete"/>
                 :null
               }

@@ -5,7 +5,9 @@ const getAllDog = async () => {
 
     const apiInfo = await getApiInfo()
     const dbInfo = await getDatabase()
-    let allDog = [...dbInfo, ...apiInfo]
+
+    const lattest = dbInfo.reverse()
+    let allDog = [...lattest, ...apiInfo]
     
     return allDog
 }
