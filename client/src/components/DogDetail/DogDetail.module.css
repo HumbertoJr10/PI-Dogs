@@ -102,6 +102,7 @@
 
 .titleStats {
     background-color: #1B1A1F;
+    
 }
 
 .titleStats_dark {
@@ -258,4 +259,81 @@
 
 .sadDog {
     width: 150px;
+}
+
+.userInfo {
+    width: 320px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.userInfo_dark{
+    width: 320px;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1B1A1F;
+    
+}
+
+.profPic {
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+}
+
+.headerUserSide {
+    background-color: #1B1A1F;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s all ease-in;
+}
+
+.headerUserSide_dark {
+    background-color: #219ebc;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+    transition: .2s all ease-in;
+}
+
+.titleUserInfo {
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: white;
+}
+    
+.username {
+    background-color: #219ebc;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.PlanBadged {
+    width: 40px;
+    position: absolute;
+    top: 170px;
+    right: 90px;
 }

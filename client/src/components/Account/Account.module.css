@@ -29,6 +29,7 @@
     flex-direction: column;
     width: 30%;
     position: relative;
+    overflow-wrap: break-word;
 }
 
 .pictureSide h2 {
@@ -195,4 +196,15 @@
     cursor: pointer;
     background-color: #219ebc;
     color: #ffff;
+}
+
+.PlanBadged {
+    width: 40px;
+}
+
+.memberdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px ;
 }

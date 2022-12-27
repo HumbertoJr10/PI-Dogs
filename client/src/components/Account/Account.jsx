@@ -15,7 +15,6 @@ const Account = () => {
     const Alldog = useSelector(state=> state.dogRespaldo)
     const [changePicOpen, setChangePicOpen] = useState(false)
     const [newPic, setNewPic] = useState("https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg")
-
     const userDogs = Alldog.filter( e=> e.created_by ==user[0]?.username)
     const dispatch = useDispatch()
 
@@ -44,16 +43,27 @@ const Account = () => {
 
   return (
     <div className={styles.body}>
-        <div className={Dark?styles.container_dark:styles.container}> 
+        <div className={Dark?styles.container_dark:styles.container}>
             <div className={styles.pictureSide}>
                 <div onClick={()=> setChangePicOpen(!changePicOpen)} className={styles.overlay}>
                 </div>
                     <img onClick={()=> setChangePicOpen(!changePicOpen)} className={styles.editicon} src='https://www.freeiconspng.com/uploads/edit-new-icon-22.png' alt='edit'/>
+                    
                 <img className={styles.profilePic} src={user[0]?.profile_Picture} alt='ProfilePic'/>
                 <h2>{user[0]?.username}</h2>
                 <p>{user[0]?.email}</p>
                 <p>Register: {user[0]?.register}</p>
-            </div>
+
+                <div className={styles.memberdiv}>
+                    <p> Member: </p>
+                    {
+                        user[0]?.member==='admin'?
+                        <img className={styles.PlanBadged} src="https://cdn-icons-png.flaticon.com/512/4142/4142160.png" alt="userPlan" />:
+                        <p>Standard</p>
+                        
+                    }
+                </div>
+            </div>          
             <div className={styles.infoUser}>
                 <div className={styles.titleBreed}>
                     <h1>Your Breeds</h1>

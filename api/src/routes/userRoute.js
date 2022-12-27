@@ -39,7 +39,7 @@ userRouter.put('/:id', async (req, res)=> {
 
 userRouter.post('/', async (req,res) => {
     try {
-        const {username, password, email, profile_Picture} = req.body
+        const {username, password, email, profile_Picture, member} = req.body
 
         if (!username || !password || !email) {
             return res.status(404).json({err: 'Faltan parámetros'})
@@ -59,7 +59,7 @@ userRouter.post('/', async (req,res) => {
         if (busquedaUsername.length || busquedaEmail.length) {
             res.status(404).json({err: 'Usuario/email ya existe'})
         } else {
-            const newUser = await User.create({username, password, email, profile_Picture})
+            const newUser = await User.create({username, password, email, profile_Picture, member})
             res.status(201).json(newUser)
         }
 

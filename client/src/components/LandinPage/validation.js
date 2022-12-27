@@ -27,7 +27,7 @@ export function validationRegister(form, allUsers) {
     const repeatUsername = allUsers.find(e => e.username === form.username)
     const repeatEmail = allUsers.find(e => e.email===form.email)
 
-    if (form.username.length>12 || form.username.length<6) {
+    if (form.username.length>10 || form.username.length<6) {
         errors.username = 'username must contain between 6-12 characters'
     }
 

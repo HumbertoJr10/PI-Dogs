@@ -15,9 +15,12 @@ const DogDetail = () => {
     const history = useHistory()
     const dogDetail = useSelector( state => state.dogDetail)
     const userLoged = useSelector( state => state.userLoged)
+    const allUsers = useSelector( state => state.allUser)
     const [deleteOpen, setDeleteOpen] = useState(false)
-    
 
+    const creator = allUsers.find( e => e.username == dogDetail[0]?.created_by)
+    
+    console.log(creator)
     useEffect(  ()=> {
        dispatch(getOneDog(id))
     }, [])
@@ -33,6 +36,24 @@ const DogDetail = () => {
 
   return (
   <div className={styles.body}>
+
+    {
+      creator?
+      <div className={Dark?styles.userInfo_dark:styles.userInfo}>
+        <div className={Dark?styles.headerUserSide_dark:styles.headerUserSide}>
+          <h2 className={styles.titleUserInfo}>Creator</h2>
+        </div>
+        
+        {
+          creator.member==='admin'?
+          <img className={styles.PlanBadged} src="https://cdn-icons-png.flaticon.com/512/4142/4142160.png" alt="userPlan" />:
+          null
+          
+        }
+        <img className={styles.profPic} src={creator.profile_Picture} alt='user'/>
+        <h2 className={styles.username}>{creator.username}</h2>
+      </div>:null
+    }
 
     {
       dogDetail.length? 
@@ -52,12 +73,6 @@ const DogDetail = () => {
             <div className={Dark?styles.titleStats_dark:styles.titleStats}>
               <h1>{dogDetail[0].name}</h1>
             </div>
-            {
-              dogDetail[0].created_by?
-              <div>
-                <p className={styles.creator}> Created by {dogDetail[0].created_by} </p>
-              </div>:null
-            }
            
 
             <div className={styles.stadistic}>

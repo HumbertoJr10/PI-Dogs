@@ -15,6 +15,10 @@ export function validationErrors (form, allDogs) {
         errors.name = 'Must include a name'
     }
 
+    if (form.name.length>10) {
+        errors.name = 'Name is to long'
+    }
+
     let duplicated = allDogs.filter( e=> e.name.toUpperCase()===form.name.toUpperCase())
     if (duplicated.length) {
         errors.name= 'This name already exist'
@@ -24,7 +28,7 @@ export function validationErrors (form, allDogs) {
         errors.heightMin = 'Only positive Numbers'
     }
 
-    if (form.heightMax*1<1) {
+    if (form.heightMax*1<1 ) {
         errors.heightMax = 'Only positive Numbers'
     }
 
