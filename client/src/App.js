@@ -11,6 +11,7 @@ import BreedCreator from './components/BreedCreator/BreedCreator';
 import Footer from './components/Footer/Footer';
 import DogDetail from './components/DogDetail/DogDetail';
 import Account from './components/Account/Account';
+import { ProfileUsers } from './components/ProfileUsers/ProfileUsers';
 
 // https://pngimage.net/wp-content/uploads/2018/05/cachorro-feliz-png-2.png
 
@@ -36,6 +37,7 @@ function App() {
             <Route exact path='/new-breed' component={BreedCreator} />
             <Route exact path='/Breed/:id' component={DogDetail}/>
             <Route exact path='/account/:username' component={Account}/>
+            <Route exact path='/profile/:username' component={ProfileUsers}/>
           </Switch>
          <Footer/>
       </div>

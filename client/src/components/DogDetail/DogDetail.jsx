@@ -24,7 +24,7 @@ const DogDetail = () => {
     useEffect(  ()=> {
        dispatch(getOneDog(id))
     }, [])
-    console.log(id)
+  
 
 
     const Remove = () => {
@@ -51,7 +51,9 @@ const DogDetail = () => {
           
         }
         <img className={styles.profPic} src={creator.profile_Picture} alt='user'/>
-        <h2 className={styles.username}>{creator.username}</h2>
+        <NavLink className={styles.navName} to={`/profile/${creator.username}`}>
+          <h2 className={styles.username}>{creator.username}</h2>
+        </NavLink>
       </div>:null
     }
 
@@ -62,7 +64,7 @@ const DogDetail = () => {
           <div className={styles.BannerContainer}>
               <img className={styles.picture} src={dogDetail[0].image} alt="dog" />
               {
-                dogDetail[0].created_by&&dogDetail[0].created_by==userLoged[0].username?
+                dogDetail[0].created_by&&dogDetail[0].created_by==userLoged[0].username||userLoged[0].member==='admin'?
                   <img onClick={()=> setDeleteOpen(!deleteOpen)} className={styles.delete} src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="delete"/>
                 :null
               }
