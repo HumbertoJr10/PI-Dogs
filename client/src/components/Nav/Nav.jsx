@@ -27,6 +27,7 @@ export default function Nav() {
             dispatch(reset()) 
             dispatch(searchDog(SearchText))
             dispatch(changePage(1))
+            history.push('/home')
         } else {
             setSearchText('')
             setModalSearchFailed(!ModalSearchFailed)
@@ -40,6 +41,7 @@ export default function Nav() {
                 dispatch(searchDog(SearchText))
                 dispatch(changePage(1))
                 setSearchText('')
+                history.push('/home')
             } else {
                 setSearchText('')
                 setModalSearchFailed(!ModalSearchFailed)

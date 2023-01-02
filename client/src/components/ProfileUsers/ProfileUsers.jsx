@@ -5,6 +5,7 @@ import styles from './ProfileUsers.module.css'
 
 export const ProfileUsers = () => {
 
+    const Dark = useSelector(state => state.DarkMode)
     const { username } =  useParams()
     const allUser = useSelector(state => state.allUser)
     const profileUser = allUser.find( e => e.username === username)
@@ -14,7 +15,7 @@ export const ProfileUsers = () => {
 
   return (
     <div className={styles.body}>
-        <div className={styles.container}>
+        <div className={Dark?styles.container_dark:styles.container}>
             <div className={styles.leftSide}>
                 <img className={styles.picProfile} src={profileUser?.profile_Picture} alt="profile"/>
                 {
