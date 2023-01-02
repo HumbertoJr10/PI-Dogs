@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { API_URL } from '../../config'
 //-------ACTION TYPES -----------
 
 export const ADD_DOG = 'ADD_DOG'
@@ -39,7 +40,7 @@ export function darkMode (status) {
 
 export function createUser(user) {
     return async function (dispatch) {
-        const data = axios.post('http://localhost:3001/user', user)
+        const data = axios.post(`${API_URL}/user`, user)
         .then( res => {
             dispatch ({
                 type: CREATE_USER,
@@ -65,7 +66,7 @@ export function userLogout () {
 
 export function getAllUsers () {
     return async function (dispatch) {
-        return fetch('http://localhost:3001/user')
+        return fetch(`${API_URL}/user`)
         .then( res => res.json())
         .then( data => {
             dispatch({
@@ -85,7 +86,7 @@ export function filterTemperament (temperament) {
 
 export function getOneDog (id) {
     return async function (dispatch) {
-        return fetch(`http://localhost:3001/dogs/${id}`)
+        return fetch(`${API_URL}/dogs/${id}`)
         .then( res => res.json())
         .then( data => {
             dispatch({
@@ -105,7 +106,7 @@ export function resetDetail () {
 
 export function addDog (dog) {
     return async function (dispatch) {
-        const response = axios.post('http://localhost:3001/dogs', dog);
+        const response = axios.post(`${API_URL}/dogs`, dog);
         return response
     }
 }
@@ -113,7 +114,7 @@ export function addDog (dog) {
 export function deleteDog(id) {
 
     return async function (dispatch) {
-        const response = await axios.delete(`http://localhost:3001/dogs/${id}`)
+        const response = await axios.delete(`${API_URL}/dogs/${id}`)
         dispatch({
             type: DELETE_BREED,
             payload: id
@@ -123,7 +124,7 @@ export function deleteDog(id) {
 
 export function getDogs () {
     return async function (dispatch) {
-        return fetch(`http://localhost:3001/dogs`)
+        return fetch(`${API_URL}/dogs`)
         .then( res => res.json())
         .then( data => {
             dispatch({
@@ -136,7 +137,7 @@ export function getDogs () {
 
 export function getTemperament () {
     return async function (dispatch) {
-        return fetch('http://localhost:3001/temperaments')
+        return fetch(`${API_URL}/temperaments`)
         .then( res => res.json())
         .then ( data => {
             dispatch({
@@ -149,7 +150,7 @@ export function getTemperament () {
 
 export function searchDog (nombre) {
     return async function (dispatch) {
-        return fetch(`http://localhost:3001/dogs?name=${nombre}`)
+        return fetch(`${API_URL}/dogs?name=${nombre}`)
         .then( res => res.json())
         .then( data => {
             dispatch({
@@ -183,7 +184,7 @@ export function orderByAll () {
 
 export function changeProfilePic(id, profile_Picture) {
     return async function (dispatch) {
-        const modify = axios.put(`http://localhost:3001/user/${id}`, profile_Picture)
+        const modify = axios.put(`${API_URL}/user/${id}`, profile_Picture)
             .then( res => {
                 const {data} = res
                 dispatch({
