@@ -67,7 +67,6 @@ export default function Nav() {
                 <NavLink className={styles.navButton} to={'/home'}>
                     <p>Home</p>
                 </NavLink> 
-                <p className={styles.navButton}>About</p>
             </div>
 
             <div className={styles.searchDiv}>
