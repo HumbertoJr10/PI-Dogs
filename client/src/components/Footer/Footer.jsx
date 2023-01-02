@@ -22,7 +22,7 @@ const Footer = () => {
         <div className={styles.leftSide}>
             
             <div className={styles.IconContactContainer}>
-                <h2>Contact</h2>
+                <h4>Contact</h4>
                 <div className={styles.iconside}>
                   <a href="https://github.com/HumbertoJr10" target="_blank" >
                     <img className={styles.iconSocialGit} src={github} />
@@ -34,10 +34,13 @@ const Footer = () => {
             </div>
         </div>
         <div className={styles.centerSide}>
-
+          <p>© 2023 DogeLand.</p>
         </div>
         <div className={styles.rightSide}>
-
+          <h4>Humberto Junior Guerra Arzolay</h4>
+          <p>Full stack developer</p>
+          <p>Ciudad Bolívar, Venezuela</p>
+          <p>+584124993765</p>
         </div>
     </div>
   )
