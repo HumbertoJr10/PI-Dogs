@@ -24,7 +24,7 @@ export default function Nav() {
     const searching = () => {
         const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
         if (finded.length) {
-            dispatch(reset()) 
+            //dispatch(reset()) 
             dispatch(searchDog(SearchText))
             dispatch(changePage(1))
             history.push('/home')
@@ -37,7 +37,7 @@ export default function Nav() {
         if (e.keyCode==13) {
             const finded = dogs.filter( e => e.name.toUpperCase().includes(SearchText.toUpperCase()))
             if (finded.length) {
-                dispatch(reset())
+                //dispatch(reset())
                 dispatch(searchDog(SearchText))
                 dispatch(changePage(1))
                 setSearchText('')
