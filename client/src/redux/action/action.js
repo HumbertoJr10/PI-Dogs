@@ -116,14 +116,9 @@ export function addDog (dog) {
     
     return async function (dispatch) {
         const res = await axios.post(`${API_URL}/dogs`, dog);
-        console.log(res)
-        return fetch(`${API_URL}/dogs`)
-        .then( res => res.json())
-        .then( data => {
-            dispatch({
-                type: GET_DOGS,
-                payload: data
-            })
+        dispatch({
+            type: ADD_DOG,
+            payload: dog
         })
     }
 }
