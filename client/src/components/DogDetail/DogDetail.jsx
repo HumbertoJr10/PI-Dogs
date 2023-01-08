@@ -2,7 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from './DogDetail.module.css'
 import { NavLink, useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { getOneDog } from '../../redux/action/action';
+import { getAllUsers, getOneDog } from '../../redux/action/action';
 import { Loading } from '../Loading/Loading';
 import ModalWindow from '../ModalWindow/ModalWindow';
 import { deleteDog } from '../../redux/action/action';
@@ -18,13 +18,18 @@ const DogDetail = () => {
     const allUsers = useSelector( state => state.allUser)
     const [deleteOpen, setDeleteOpen] = useState(false)
 
-    const creator = allUsers.find( e => e.username == dogDetail[0]?.created_by)
+    let creator = allUsers.find( e => e.username == dogDetail[0]?.created_by)
     
     useEffect(  ()=> {
        dispatch(getOneDog(id))
     }, [])
   
+    useEffect( ()=> {
+      dispatch(getAllUsers())
+      creator = allUsers.find( e => e.username == dogDetail[0]?.created_by)
+    }, [userLoged])
 
+    console.log(userLoged)
 
     const Remove = () => {
       dispatch(deleteDog(id))

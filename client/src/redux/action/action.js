@@ -30,6 +30,7 @@ export const CHANGE_PROFILE_PIC = 'CHANGE_PROFILE_PIC'
 export const NEW_DOG = 'NEW_DOG'
 
 
+
 //------------------------------
 
 export function darkMode (status) {
