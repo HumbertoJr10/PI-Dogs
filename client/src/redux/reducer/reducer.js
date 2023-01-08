@@ -50,7 +50,8 @@ const reducer = (state = initialState, { type, payload }) => {
         case RESET_DOGS:
             return {
                 ...state,
-                dog: payload
+                dog: [...payload],
+                dogRespaldo: [...payload]
             }
         case GET_ALL_USERS:
             return {
