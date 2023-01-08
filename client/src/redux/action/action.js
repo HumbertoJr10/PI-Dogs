@@ -116,10 +116,10 @@ export function addDog (dog) {
     
     return async function (dispatch) {
         const res = await axios.post(`${API_URL}/dogs`, dog);
-        dispatch({
+        return {
             type: ADD_DOG,
             payload: dog
-        })
+        }
     }
 }
 
