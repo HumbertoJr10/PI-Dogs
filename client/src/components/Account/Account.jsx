@@ -5,7 +5,7 @@ import Dogs from '../Dogs/Dogs'
 import ModalWindow from '../ModalWindow/ModalWindow'
 import styles from './Account.module.css'
 import { isUrl } from '../BreedCreator/Validation'
-import { changeProfilePic } from '../../redux/action/action'
+import { changeProfilePic, getAllUsers } from '../../redux/action/action'
 import { resetDetail } from '../../redux/action/action'
 
 const Account = () => {
@@ -34,6 +34,7 @@ const Account = () => {
         dispatch(changeProfilePic(user[0].id, {profile_Picture: newPic}))
         setNewPic('https://t3.ftcdn.net/jpg/01/09/00/64/360_F_109006426_388PagqielgjFTAMgW59jRaDmPJvSBUL.jpg')
         setChangePicOpen(!changePicOpen)
+        dispatch(getAllUsers())
     }
 
     useEffect( ()=> {
