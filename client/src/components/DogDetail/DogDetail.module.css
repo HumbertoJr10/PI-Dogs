@@ -336,6 +336,7 @@
     position: absolute;
     top: 170px;
     right: 90px;
+    z-index: 7;
 }
 
 .navName {

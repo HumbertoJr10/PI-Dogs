@@ -29,7 +29,7 @@ const DogDetail = () => {
       creator = allUsers.find( e => e.username == dogDetail[0]?.created_by)
     }, [userLoged])
 
-    console.log(userLoged)
+    console.log(creator)
 
     const Remove = () => {
       dispatch(deleteDog(id))
@@ -52,7 +52,6 @@ const DogDetail = () => {
           creator.member==='admin'?
           <img className={styles.PlanBadged} src="https://cdn-icons-png.flaticon.com/512/4142/4142160.png" alt="userPlan" />:
           null
-          
         }
         <img className={styles.profPic} src={creator.profile_Picture} alt='user'/>
         <NavLink className={styles.navName} to={`/profile/${creator.username}`}>
