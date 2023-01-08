@@ -283,7 +283,7 @@
     flex-direction: column;
     align-items: center;
     background-color: #1B1A1F;
-    
+    position: relative;
 }
 
 .profPic {
