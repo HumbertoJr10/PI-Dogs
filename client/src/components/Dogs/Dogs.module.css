@@ -120,6 +120,7 @@
     border-top: 1px solid #d6d3d2;
     transition: .2s all ease-in;
     font-size: 12px;
+    color: black;
 }
 
 .FooterSide_dark {
@@ -176,6 +177,7 @@
 
 .link {
     text-decoration: none;
+    color: black;
 }
 
 .creator {
