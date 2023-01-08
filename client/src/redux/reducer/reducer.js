@@ -24,7 +24,8 @@ import {
     CREATE_USER,
     USER_LOGOUT,
     DELETE_BREED,
-    CHANGE_PROFILE_PIC
+    CHANGE_PROFILE_PIC,
+    RESET_DOGS
 } from "../action/action"
 //------------------
 
@@ -45,6 +46,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 DarkMode: payload
+            }
+        case RESET_DOGS:
+            return {
+                ...state,
+                dog: payload
             }
         case GET_ALL_USERS:
             return {

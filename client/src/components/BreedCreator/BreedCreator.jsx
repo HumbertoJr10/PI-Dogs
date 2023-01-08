@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './BreedCreator.module.css'
 import { isUrl, validationErrors } from './Validation'
-import { addDog, getDogs, getTemperament } from '../../redux/action/action'
+import { addDog, getDogs, getTemperament, resetDog } from '../../redux/action/action'
 import { useDispatch, useSelector } from "react-redux";
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import { NavLink } from 'react-router-dom';
@@ -96,6 +96,7 @@ const BreedCreator = () => {
                 life_span: newDog.life_span + ' years',
                 userID: user[0].id
             }))
+            dispatch(resetDog())
             dispatch(getDogs())
     
             setNewDog({

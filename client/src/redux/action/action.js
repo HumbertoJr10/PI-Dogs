@@ -4,6 +4,7 @@ import { API_URL } from '../../config'
 
 export const ADD_DOG = 'ADD_DOG'
 export const GET_DOGS = 'GET_DOGS'
+export const RESET_DOGS = 'RESET_DOGS'
 export const GET_ONE_DOG = 'GET_ONE_DOG'
 export const RESET_DETAIL = 'RESET_DETAIL'
 export const GET_TEMPERAMENT = 'GET_TEMPERAMENT'
@@ -35,6 +36,13 @@ export function darkMode (status) {
     return {
         type: DARK_MODE,
         payload: status
+    }
+}
+
+export function resetDog() {
+    return {
+        type: RESET_DOGS,
+        payload: []
     }
 }
 
