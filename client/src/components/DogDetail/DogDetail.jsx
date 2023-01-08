@@ -116,7 +116,7 @@ const DogDetail = () => {
     modalState={deleteOpen}
     setModalState={setDeleteOpen}
     >
-      <img className={styles.sadDog} src='https://assets.stickpng.com/images/580b57fbd9996e24bc43bbdd.png' alt="sadDog"/>
+      <img className={styles.sadDog} src='https://static.vecteezy.com/system/resources/thumbnails/009/886/106/small/cute-puppies-pomeranian-mixed-breed-pekingese-dog-sitting-png.png' alt="sadDog"/>
       <h1>Are you sure?</h1>
       <button onClick={Remove} className={styles.backButton}> Delete</button>
     </ModalWindow>
