@@ -25,7 +25,8 @@ import {
     USER_LOGOUT,
     DELETE_BREED,
     CHANGE_PROFILE_PIC,
-    RESET_DOGS
+    RESET_DOGS,
+    NEW_DOG
 } from "../action/action"
 //------------------
 
@@ -42,6 +43,13 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
+
+        case NEW_DOG: 
+            return {
+                ...state,
+                dog: [],
+                dogRespaldo: []
+            }
         case DARK_MODE:
             return {
                 ...state,

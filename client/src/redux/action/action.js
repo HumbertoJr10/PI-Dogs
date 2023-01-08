@@ -28,6 +28,7 @@ export const GET_ALL_USERS = 'GET_ALL_USERS'
 export const CREATE_USER = 'CREATE_USER'
 export const DELETE_BREED = 'DELETE_BREED'
 export const CHANGE_PROFILE_PIC = 'CHANGE_PROFILE_PIC'
+export const NEW_DOG = 'NEW_DOG'
 
 
 //------------------------------
@@ -120,6 +121,16 @@ export function addDog (dog) {
             type: ADD_DOG,
             payload: dog
         }
+    }
+}
+
+export function newDogfunction(dog) {
+    return async function(dispatch) {
+        const response = await axios.post(`${API_URL}/dogs`, dog);
+        dispatch({
+            type: NEW_DOG,
+            payload: response
+        })
     }
 }
 

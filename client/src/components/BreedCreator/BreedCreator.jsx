@@ -5,7 +5,7 @@ import { addDog, getDogs, getTemperament, resetDog } from '../../redux/action/ac
 import { useDispatch, useSelector } from "react-redux";
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import { NavLink } from 'react-router-dom';
-
+import { newDogfunction } from '../../redux/action/action';
 
 const BreedCreator = () => {
 
@@ -91,14 +91,19 @@ const BreedCreator = () => {
         if (Object.keys(errors).length) {
             alert('You need to fix the mistakes')
         } else {
-            dispatch(addDog({
+            /*dispatch(addDog({
                 ...newDog,
                 life_span: newDog.life_span + ' years',
                 userID: user[0].id
-            }))
-            dispatch(resetDog())
-            dispatch(getDogs())
-    
+            }))*/
+            const dog = {
+                ...newDog,
+                life_span: newDog.life_span + ' years',
+                userID: user[0].id
+            }
+            
+            dispatch( newDogfunction (dog))
+            
             setNewDog({
                 name: '',
                 heightMin: '',
