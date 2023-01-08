@@ -96,8 +96,8 @@ const BreedCreator = () => {
                 life_span: newDog.life_span + ' years',
                 userID: user[0].id
             }))
-            //dispatch(resetDog())
-            //dispatch(getDogs())
+            dispatch(resetDog())
+            dispatch(getDogs())
     
             setNewDog({
                 name: '',

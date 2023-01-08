@@ -115,7 +115,7 @@ export function resetDetail () {
 export function addDog (dog) {
     return async function (dispatch) {
         const res = await axios.post(`${API_URL}/dogs`, dog);
-        dispatch( {
+        dispatch({
             type: ADD_DOG,
             payload: res
         })
