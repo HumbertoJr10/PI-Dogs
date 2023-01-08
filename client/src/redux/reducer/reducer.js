@@ -76,7 +76,8 @@ const reducer = (state = initialState, { type, payload }) => {
         case ADD_DOG:
             return {
                 ...state,
-                character: [ payload, ...state.character]
+                dog: [ payload, ...state.dog],
+                dogRespaldo: [payload, ...state,dogRespaldo]
             }
         case DELETE_BREED:
             return {
