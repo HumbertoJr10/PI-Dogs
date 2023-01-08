@@ -251,6 +251,9 @@
     opacity: .5;
     transition: all .2s ease-in;
     cursor: pointer;
+    background-color: white;
+    padding: 6px;
+    border-radius: 100%;
 }
 
 .delete:hover {
