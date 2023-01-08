@@ -2,7 +2,6 @@ import axios from 'axios'
 import { API_URL } from '../../config'
 //-------ACTION TYPES -----------
 
-export const ADD_DOG = 'ADD_DOG'
 export const GET_DOGS = 'GET_DOGS'
 export const RESET_DOGS = 'RESET_DOGS'
 export const GET_ONE_DOG = 'GET_ONE_DOG'
@@ -110,17 +109,6 @@ export function resetDetail () {
     return {
         type: RESET_DETAIL,
         payload: []
-    }
-}
-
-export function addDog (dog) {
-    
-    return async function (dispatch) {
-        const res = await axios.post(`${API_URL}/dogs`, dog);
-        return {
-            type: ADD_DOG,
-            payload: dog
-        }
     }
 }
 

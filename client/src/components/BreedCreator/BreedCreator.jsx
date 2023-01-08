@@ -91,11 +91,6 @@ const BreedCreator = () => {
         if (Object.keys(errors).length) {
             alert('You need to fix the mistakes')
         } else {
-            /*dispatch(addDog({
-                ...newDog,
-                life_span: newDog.life_span + ' years',
-                userID: user[0].id
-            }))*/
             const dog = {
                 ...newDog,
                 life_span: newDog.life_span + ' years',

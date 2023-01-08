@@ -1,6 +1,5 @@
 // importar actions
 import { 
-    ADD_DOG, 
     GET_DOGS,
     GET_ONE_DOG,
     RESET_DETAIL,
@@ -80,12 +79,6 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 allUser: [...state.allUser, ...payload],
-            }
-        case ADD_DOG:
-            return {
-                ...state,
-                dog: [ payload, ...state.dog],
-                dogRespaldo: [payload, ...state.dogRespaldo]
             }
         case DELETE_BREED:
             return {
