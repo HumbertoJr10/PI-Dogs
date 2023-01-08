@@ -114,7 +114,7 @@ export function resetDetail () {
 
 export function addDog (dog) {
     return async function (dispatch) {
-        const response = axios.post(`${API_URL}/dogs`, dog);
+        const response = await axios.post(`${API_URL}/dogs`, dog);
         return response
     }
 }
