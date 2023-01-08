@@ -64,7 +64,7 @@ const DogDetail = () => {
               <img className={styles.picture} src={dogDetail[0].image} alt="dog" />
               {
                 dogDetail[0].created_by&&dogDetail[0].created_by==userLoged[0].username||userLoged[0].member==='admin'?
-                  <img onClick={()=> setDeleteOpen(!deleteOpen)} className={styles.delete} src="https://assets.stickpng.com/images/580b57fbd9996e24bc43bbdd.png" alt="delete"/>
+                  <img onClick={()=> setDeleteOpen(!deleteOpen)} className={styles.delete} src="https://cdn-icons-png.flaticon.com/512/58/58326.png" alt="delete"/>
                 :null
               }
               
